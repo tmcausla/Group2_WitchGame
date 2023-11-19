@@ -5,8 +5,6 @@ using UnityEngine;
 public class ShootBullet : MonoBehaviour
 {
     //public PlayerMana playerMana;
-    //private Camera mainCam;
-    private Vector3 mousePos;
     public GameObject Prefab;
     public Transform bulletTransform;
     public bool canFire;
@@ -15,8 +13,7 @@ public class ShootBullet : MonoBehaviour
     //public int lessMana = 1;
 
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (!canFire)
         {
@@ -24,17 +21,16 @@ public class ShootBullet : MonoBehaviour
             if (timer > timeBetweenFiring)
             {
                 canFire = true;
-                timer = 0;
             }
         }
         
 
-        if (Input.GetMouseButtonDown(0) && canFire == true)
+        if (Input.GetMouseButtonDown(0) && canFire)
         {
-            canFire = false;
             Instantiate(Prefab, bulletTransform.position, Quaternion.identity);
+            timer = 0;
+            canFire = false;
             //playerMana.UseMana(lessMana);
-
         }
         
     }

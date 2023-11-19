@@ -8,13 +8,19 @@ using UnityEngine.SceneManagement;
 public class ItemCollector : MonoBehaviour
 {
     [SerializeField] private bool hasKey = false;
+    private PlaySounds sm;
+
+    private void Start()
+    {
+        sm = FindObjectOfType<PlaySounds>();
+    }
     
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Key"))
         {
-            FindObjectOfType<PlaySounds>().PlayItemSound();
+            sm.PlayItemSound();
             Destroy(collision.gameObject);
             hasKey = true;
         }
@@ -29,7 +35,7 @@ public class ItemCollector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Door") && hasKey)
         {
-            FindObjectOfType<PlaySounds>().PlayDeathSound();
+            sm.PlayDeathSound();
             Destroy(collision.gameObject);
         }
     }

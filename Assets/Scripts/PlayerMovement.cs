@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
 
-    private enum MovementState { idle, running, jumping }
+    private enum MovementState { idle, running, jumping, shooting }
 
     // Update is called once per frame
     private void Update()
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("state", (int)state);
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
     }

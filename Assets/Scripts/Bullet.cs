@@ -8,22 +8,16 @@ public class Bullet : MonoBehaviour
     GameObject Bullet1;
     private Vector3 mousePos;
     private Camera mainCam;
-    private Rigidbody2D rb;
-    public float force;
-    [SerializeField] private float projectileLife = 5f;
-    [SerializeField] private float projectileCount;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float force;
+    [SerializeField] private float projectileLife;
 
-    private void Awake()
-    {
-        projectileCount = projectileLife;
-    }
+    
     private void Start()
     {
-        
-
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        rb = GetComponent<Rigidbody2D>();
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
         Vector3 direction = mousePos - transform.position;
         Vector3 rotation = transform.position - mousePos;
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
@@ -34,18 +28,23 @@ public class Bullet : MonoBehaviour
     }
     private void Update()
     {
-        projectileCount -= Time.deltaTime;
-        if(projectileCount <= 0)
+        projectileLife -= Time.deltaTime;
+        if(projectileLife <= 0) //destroys bullet after time expires
         {
             Destroy(gameObject);
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Bullet"))  //bullets do not disappear if colliding with player character or other bullets
+        {
+            Destroy(gameObject);
+        }
+        
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject);  //Rework if giving health to enemies
         }
     }
 

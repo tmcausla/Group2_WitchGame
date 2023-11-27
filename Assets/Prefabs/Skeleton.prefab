@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 3872333844934431357}
   - component: {fileID: 3872333844934431356}
   - component: {fileID: 3872333844934431297}
-  m_Layer: 0
+  - component: {fileID: 7942660602887342090}
+  m_Layer: 7
   m_Name: Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -173,3 +174,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &7942660602887342090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872333844934431359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db5f47c3505e8e48a057f0b62d4fdf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  badHealth: 1
+  health: {fileID: 5313994066146348952, guid: 35cfeb501ad6a5e41b7489831c78c80c, type: 3}
+  mana: {fileID: 4558812195307937929, guid: b0d7063dc12add74e86595218de33a93, type: 3}
+  iFramesDuration: 2
+  numberOfFlashes: 6

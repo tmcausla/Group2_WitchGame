@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class ShootPlease : MonoBehaviour
 {
     private Camera mainCam;
@@ -16,10 +15,11 @@ public class ShootPlease : MonoBehaviour
 
     private void Update()
     {
+        
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 shootDir = (mousePos - mainCam.transform.position).normalized;
         float rotZ = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        transform.rotation = Quaternion.Euler(0, 0, rotZ);   
     }
 }

@@ -12,17 +12,20 @@ TagManager:
   - Enemy
   - Key
   - Door
-  - Bullet
+  - Bullet1
+  - Bullet2
+  - Bullet3
+  - MoreWeapon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - Ground
-  - 
-  - 
+  - Player
+  - Enemies
+  - Bullet
   - 
   - 
   - 
@@ -49,4 +52,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 279596565
     locked: 0

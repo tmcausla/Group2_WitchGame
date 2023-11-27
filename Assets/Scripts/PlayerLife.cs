@@ -10,10 +10,7 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     private PlaySounds sm;
 
-    private void Start()
-    {
-        sm = FindObjectOfType<PlaySounds>();
-    }
+    private void Start() => sm = FindObjectOfType<PlaySounds>();
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -30,8 +27,5 @@ public class PlayerLife : MonoBehaviour
         anim.SetTrigger("death");
     }
 
-    private void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    private void RestartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 }

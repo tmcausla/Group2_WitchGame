@@ -27,7 +27,7 @@ public class ItemCollector : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Finish"))
         {
-            SceneManager.LoadScene("Scene2");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

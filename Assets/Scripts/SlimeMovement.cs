@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SlimeMovement : MonoBehaviour
@@ -9,11 +7,7 @@ public class SlimeMovement : MonoBehaviour
 
     [SerializeField] private float speed;
 
-    private void Update()
-    {
-        rb.velocity = new Vector2(speed, rb.velocity.y);
-
-    }
+    private void Update() => rb.velocity = new Vector2(speed, rb.velocity.y);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

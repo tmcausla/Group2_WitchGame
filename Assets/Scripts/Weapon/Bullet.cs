@@ -1,20 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    GameObject Bullet1;
+    private readonly GameObject Bullet1;
     private Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
     public float force;
-    private float projectileLife = 5f;
+    private readonly float projectileLife = 5f;
     private float projectileCount;
+
     private void Start()
     {
-
         projectileCount = projectileLife;
 
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -29,17 +26,15 @@ public class Bullet : MonoBehaviour
         Physics2D.IgnoreLayerCollision(6, 8, true);
         Physics2D.IgnoreLayerCollision(8, 8, true);
     }
+
     private void Update()
     {
         projectileCount -= Time.deltaTime;
-        if(projectileCount <= 0)
+        if (projectileCount <= 0)
         {
             Destroy(gameObject);
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy(gameObject);
-    }
 
+    private void OnCollisionEnter2D(Collision2D collision) => Destroy(gameObject);
 }

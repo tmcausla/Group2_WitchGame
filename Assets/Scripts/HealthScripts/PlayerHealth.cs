@@ -1,23 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
-
 
 public class PlayerHealth : MonoBehaviour
 {
-
     public float health;
-    private float maxHealth = 8;
-    private int damage = 1;
+    private readonly float maxHealth = 8;
+    private readonly int damage = 1;
     public float KBForce;
     public float KBCounter;
     public float KBTotalTime;
     public bool KnockFromRight;
-
 
     [Header("iFrames")]
     [SerializeField] private float healthValue;
@@ -28,60 +22,39 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private AudioSource deathSoundEffect;
     private SpriteRenderer spriteRend;
     public Image[] hearts;
-
-    DamageHealth damageHealth;
-
+    private readonly DamageHealth damageHealth;
 
     public Sprite fullHeart;
     public Sprite emptyHeart;
 
-
     private Rigidbody2D rb;
     private Animator anim;
 
-
-
-
-
-
     // Start is called before the first frame update
-    void Start()
-
-        
-
-
+    private void Start()
     {
-       
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         Physics2D.IgnoreLayerCollision(6, 7, false);
         health = maxHealth;
-
-
         {
             rb = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
             spriteRend = GetComponent<SpriteRenderer>();
         }
-
     }
+
     public void TakeDamage(int amount)
     {
         //hurtSound.Play();
         //anim.SetTrigger("hurt");
-        StartCoroutine(Invunerability());
+        _ = StartCoroutine(Invunerability());
 
         health = Mathf.Clamp(health - amount, 0, maxHealth);
-
         if (health <= 0)
         {
-            
             Die();
-
         }
-
-
     }
-
 
     private void Die()
     {
@@ -91,70 +64,35 @@ public class PlayerHealth : MonoBehaviour
         RestartLevel();
 
         //anim.SetTrigger("death");
-
     }
-    public void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-
-
-
-
+    public void RestartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
-          
-        
-
         for (int i = 0; i < hearts.Length; i++)
         {
             if (i < health)
             {
                 hearts[i].sprite = fullHeart;
-            }
-            else
-            {
-                hearts[i].sprite = emptyHeart;
-            }
-
-            if (i < maxHealth)
-            {
                 hearts[i].enabled = true;
+                return;
             }
-            else
-            {
-                hearts[i].enabled = false;
-            }
+            hearts[i].sprite = emptyHeart;
+            hearts[i].enabled = false;
         }
-
-        
-
     }
+
     private void FixedUpdate()
     {
-        if(KBCounter <= 0 && damageHealth.knockPlayer == true)
+        if (KBCounter <= 0 && damageHealth.knockPlayer == true)
         {
-            if (KnockFromRight == true)
-            {
-                rb.velocity = new Vector2(-KBForce, KBForce);
-            }
+            rb.velocity = KnockFromRight == true ? new Vector2(-KBForce, KBForce) : new Vector2(KBForce, KBForce);
 
-            if (KnockFromRight == false)
-            {
-                rb.velocity = new Vector2(KBForce, KBForce);
-            }
             KBCounter -= Time.deltaTime;
             damageHealth.knockPlayer = false;
         }
-       
     }
-
-
-
 
     private IEnumerator Invunerability()
     {
@@ -167,15 +105,9 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
         }
         Physics2D.IgnoreLayerCollision(6, 7, false);
-
     }
 
-
-    public void AddHealth(float _value)
-    {
-        
-        health = Mathf.Clamp(health + _value, 0, maxHealth);
-    }
+    public void AddHealth(float _value) => health = Mathf.Clamp(health + _value, 0, maxHealth);
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -184,12 +116,4 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(damage);
         }
     }
-
-
-
 }
-
-
-
-
-

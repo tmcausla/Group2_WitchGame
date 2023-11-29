@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SkeletonMovement : MonoBehaviour
@@ -11,6 +9,7 @@ public class SkeletonMovement : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private float range;
+
     private void Update()
     {
         CheckRange();

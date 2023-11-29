@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootShotgun : MonoBehaviour
@@ -16,15 +14,12 @@ public class ShootShotgun : MonoBehaviour
     public float timeBetweenFiring;
     public int lessMana = 1;
     private SpriteRenderer spriteRend;
-    
+
     // Start is called before the first frame update
-    void Start()
-    {
-        spriteRend = GetComponent<SpriteRenderer>();
-    }
+    private void Start() => spriteRend = GetComponent<SpriteRenderer>();
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
         transform.rotation = Quaternion.identity;
@@ -32,37 +27,32 @@ public class ShootShotgun : MonoBehaviour
         {
             gameObject.SetActive(false);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
-
+            return;
         }
-        else
+
+        gameObject.SetActive(true);
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        if (!canFire)
         {
-            gameObject.SetActive(true);
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            if (!canFire)
+            timer += Time.deltaTime;
+            if (timer > timeBetweenFiring || playerMana.mana > 0)
             {
-                timer += Time.deltaTime;
-                if (timer > timeBetweenFiring || playerMana.mana > 0)
-                {
-                    canFire = true;
-                    timer = 0;
-                }
+                canFire = true;
+                timer = 0;
             }
-            if (playerMana.mana <= 0)
-            {
-                canFire = false;
-            }
+        }
+        if (playerMana.mana <= 0)
+        {
+            canFire = false;
+        }
 
-            if (Input.GetMouseButtonDown(0) && canFire == true)
-            {
-                canFire = false;
-                playerMana.UseMana(lessMana);
-                Instantiate(Prefab, shotgunTransform.position, shotgunTransform.rotation);
-                Instantiate(Prefab, shotgunTransformTwo.position, shotgunTransformTwo.rotation);
-                Instantiate(Prefab, shotgunTransformThree.position, shotgunTransformThree.rotation);
-
-            }
+        if (Input.GetMouseButtonDown(0) && canFire == true)
+        {
+            canFire = false;
+            playerMana.UseMana(lessMana);
+            _ = Instantiate(Prefab, shotgunTransform.position, shotgunTransform.rotation);
+            _ = Instantiate(Prefab, shotgunTransformTwo.position, shotgunTransformTwo.rotation);
+            _ = Instantiate(Prefab, shotgunTransformThree.position, shotgunTransformThree.rotation);
         }
     }
-
-
 }

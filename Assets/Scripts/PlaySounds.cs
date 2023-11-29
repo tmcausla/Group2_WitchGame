@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlaySounds : MonoBehaviour
@@ -17,21 +14,13 @@ public class PlaySounds : MonoBehaviour
         if (instance)
         {
             Destroy(gameObject);
+            return;
         }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
-        }
+        instance = this;
+        DontDestroyOnLoad(instance);
     }
 
-    public void PlayDeathSound()
-    {
-        soundManager.PlayOneShot(deathSound);
-    }
+    public void PlayDeathSound() => soundManager.PlayOneShot(deathSound);
 
-    public void PlayItemSound()
-    {
-        soundManager.PlayOneShot(getItem);
-    }
+    public void PlayItemSound() => soundManager.PlayOneShot(getItem);
 }

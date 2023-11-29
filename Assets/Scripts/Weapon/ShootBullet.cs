@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootBullet : MonoBehaviour
@@ -16,47 +14,39 @@ public class ShootBullet : MonoBehaviour
     private SpriteRenderer spriteRend;
 
     // Start is called before the first frame update
-    void Start()
-    {
-       spriteRend = GetComponent<SpriteRenderer>();
-    }
+    private void Start() => spriteRend = GetComponent<SpriteRenderer>();
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (unlockShoot.unlock <= 0 || playerHealth.health <= 0)
         {
             gameObject.SetActive(false);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            
+            return;
         }
-        else
+
+        gameObject.SetActive(true);
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        if (!canFire)
         {
-            gameObject.SetActive(true);
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            if (!canFire)
+            timer += Time.deltaTime;
+            if (timer > timeBetweenFiring || playerMana.mana > 0)
             {
-                timer += Time.deltaTime;
-                if (timer > timeBetweenFiring || playerMana.mana > 0)
-                {
-                    canFire = true;
-                    timer = 0;
-                }
-            }
-            if (playerMana.mana <= 0)
-            {
-                canFire = false;
-            }
-
-            if (Input.GetMouseButtonDown(0) && canFire == true)
-            {
-                canFire = false;
-                Instantiate(Prefab, bulletTransform.position, Quaternion.identity);
-                playerMana.UseMana(lessMana);
-
+                canFire = true;
+                timer = 0;
             }
         }
-     
-        
+        if (playerMana.mana <= 0)
+        {
+            canFire = false;
+        }
+
+        if (Input.GetMouseButtonDown(0) && canFire == true)
+        {
+            canFire = false;
+            _ = Instantiate(Prefab, bulletTransform.position, Quaternion.identity);
+            playerMana.UseMana(lessMana);
+        }
     }
 }

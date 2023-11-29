@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeCombat : MonoBehaviour
 {
-
     public Animator anim;
     public Transform attackPoint;
     public LayerMask enemyLayers;
@@ -15,34 +12,28 @@ public class MeleeCombat : MonoBehaviour
     private float nextAttackTime = 0f;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetMouseButtonDown(1))
             {
                 Attack();
-                nextAttackTime = Time.time + 1 / attackRate;
+                nextAttackTime = Time.time + (1 / attackRate);
             }
         }
-      
     }
 
-    void Attack()
+    private void Attack()
     {
         anim.SetTrigger("Attack");
-
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach(Collider2D enemy in hitEnemies)
+        foreach (Collider2D enemyCollider2D in hitEnemies)
         {
-            enemy.GetComponent<EnemyHealth>().GetHurt(attackDamage);
+            enemyCollider2D.GetComponent<EnemyHealth>().GetHurt(attackDamage);
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-      
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
+    private void OnDrawGizmosSelected() => Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 }

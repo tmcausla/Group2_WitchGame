@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class SeePlayer : MonoBehaviour
@@ -14,14 +10,9 @@ public class SeePlayer : MonoBehaviour
     public float countDown;
     public float countDownOver;
     public bool shooting;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         FlipPosition();
         if (shooting == false)
@@ -33,28 +24,20 @@ public class SeePlayer : MonoBehaviour
                 countDown = 0;
             }
         }
+
         if (isSeeing == true && shooting == true)
         {
             ShootPlayer();
             shooting = false;
+            return;
         }
-        else
-        {
-            isSeeing = false;
-            if (Vector2.Distance(transform.position, playerTransform.position) < seeDistance)
-            {
-                isSeeing = true;
-            }
-            else
-            {
-                isSeeing = false;
-            }
-        }
+        isSeeing = false;
+        isSeeing = Vector2.Distance(transform.position, playerTransform.position) < seeDistance;
     }
 
     private void ShootPlayer()
     {
-        Instantiate(Arrow, transform.position, transform.rotation);
+        _ = Instantiate(Arrow, transform.position, transform.rotation);
         shooting = false;
     }
     private void FlipPosition()
@@ -62,10 +45,8 @@ public class SeePlayer : MonoBehaviour
         if (transform.position.x > playerTransform.position.x && isSeeing == true)
         {
             transform.localScale = new Vector3(1, 1, 1);
+            return;
         }
-        if (transform.position.x < playerTransform.position.x && isSeeing == true)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
+        transform.localScale = new Vector3(-1, 1, 1);
     }
 }

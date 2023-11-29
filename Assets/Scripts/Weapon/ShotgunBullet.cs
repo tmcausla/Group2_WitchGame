@@ -1,20 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShotgunBullet : MonoBehaviour
 {
-    private float projectileLife = 5f;
+    private readonly float projectileLife = 5f;
     private float projectileCount;
     private Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
     public float force;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         projectileCount = projectileLife;
-        
+
         Physics2D.IgnoreLayerCollision(6, 8, true);
         Physics2D.IgnoreLayerCollision(8, 8, true);
 
@@ -29,7 +28,7 @@ public class ShotgunBullet : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         projectileCount -= Time.deltaTime;
         if (projectileCount <= 0)
@@ -37,8 +36,6 @@ public class ShotgunBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy(gameObject);
-    }
+
+    private void OnCollisionEnter2D(Collision2D collision) => Destroy(gameObject);
 }

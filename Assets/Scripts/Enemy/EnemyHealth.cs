@@ -1,14 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    ShootEnemy shootEnemy;
-    public float badHealth =1;
-    private float badMaxHealth = 8;
-    private int goodDamage = 2;
+    private readonly ShootEnemy shootEnemy;
+    public float badHealth = 1;
+    private readonly float badMaxHealth = 8;
+    private readonly int goodDamage = 2;
     private int chance;
     private bool dropRate = false;
     private bool spawn = false;
@@ -17,45 +15,38 @@ public class EnemyHealth : MonoBehaviour
     private int itemCount;
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
-    private SpriteRenderer spriteRend;
+    private readonly SpriteRenderer spriteRend;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         badHealth = badMaxHealth;
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void GetHurt(int value)
     {
-        StartCoroutine(Invunerability());
+        _ = StartCoroutine(Invunerability());
         badHealth = Mathf.Clamp(badHealth - value, 0, badMaxHealth);
-        if(badHealth <= 0)
+        if (badHealth <= 0)
         {
             Destroy(gameObject);
             dropRate = true;
-            DropChance();  
+            DropChance();
         }
     }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet1"))
+        for (int i = 1; i < 4; i++)
         {
-            GetHurt(goodDamage);
-        }
-        if (collision.gameObject.CompareTag("Bullet2"))
-        {
-            GetHurt(goodDamage);
-        }
-        if (collision.gameObject.CompareTag("Bullet3"))
-        {
-            GetHurt(goodDamage);
+            if (collision.gameObject.CompareTag($"Bullet{i}"))
+            {
+                GetHurt(goodDamage);
+            }
         }
     }
+
     public void DropChance()
     {
         if (dropRate == true)
@@ -63,23 +54,24 @@ public class EnemyHealth : MonoBehaviour
             chance = Random.Range(1, 10);
             dropRate = false;
         }
+
         if (chance == 5)
         {
             spawn = true;
             if (spawn == true && itemCount < 1)
             {
-                Instantiate(mana, transform.position, transform.rotation);
+                _ = Instantiate(mana, transform.position, transform.rotation);
                 dropRate = false;
                 spawn = false;
                 itemCount++;
             }
         }
-        else if (chance == 7 || chance == 8)
+        else if (chance is 7 or 8)
         {
             spawn = true;
             if (spawn == true && itemCount < 1)
             {
-                Instantiate(health, transform.position, transform.rotation);
+                _ = Instantiate(health, transform.position, transform.rotation);
                 dropRate = false;
                 spawn = false;
                 itemCount++;
@@ -87,6 +79,7 @@ public class EnemyHealth : MonoBehaviour
 
         }
     }
+
     private IEnumerator Invunerability()
     {
         for (int i = 0; i < numberOfFlashes; i++)
@@ -98,5 +91,4 @@ public class EnemyHealth : MonoBehaviour
         }
 
     }
-
 }

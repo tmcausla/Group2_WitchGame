@@ -83,16 +83,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (KBCounter <= 0 && damageHealth.knockPlayer == true)
-        {
-            rb.velocity = KnockFromRight == true ? new Vector2(-KBForce, KBForce) : new Vector2(KBForce, KBForce);
-
-            KBCounter -= Time.deltaTime;
-            damageHealth.knockPlayer = false;
-        }
-    }
+    //private void FixedUpdate()
+    //{
+    //    if (KBCounter <= 0 && damageHealth.knockPlayer == true)
+    //    {
+    //        rb.velocity = KnockFromRight == true ? new Vector2(-KBForce, KBForce) : new Vector2(KBForce, KBForce);
+    //
+    //        KBCounter -= Time.deltaTime;
+    //        damageHealth.knockPlayer = false;
+    //    }
+    //}
 
     private IEnumerator Invunerability()
     {

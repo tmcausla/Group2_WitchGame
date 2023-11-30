@@ -15,8 +15,9 @@ public class SlimeMovement : MonoBehaviour
         {
             speed *= -1f;
             sprite.flipX = true;
+            return;
         }
-        else if (collision.gameObject.CompareTag("RightBound") && rb.velocity.x > 0f)
+        if (collision.gameObject.CompareTag("RightBound") && rb.velocity.x > 0f)
         {
             speed *= -1f;
             sprite.flipX = false;

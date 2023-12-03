@@ -5,13 +5,29 @@ public class ItemCollector : MonoBehaviour
 {
     [SerializeField] private bool hasKey = false;
     private PlaySounds sm;
+    private GameManager gm;
 
-    private void Start() => sm = FindObjectOfType<PlaySounds>();
+    private void Awake()
+    {
+        sm = FindObjectOfType<PlaySounds>();
+        gm = FindObjectOfType<GameManager>();
+    }
+
+    private void Start()
+    {
+        if (gm.newScene)
+        {
+            gm.playerCheckpoint = transform.position;
+            gm.newScene = false;
+        }
+        transform.position = gm.playerCheckpoint;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Key"))
         {
+            gm.playerCheckpoint = collision.gameObject.transform.position;
             sm.PlayItemSound();
             Destroy(collision.gameObject);
             hasKey = true;
@@ -19,6 +35,7 @@ public class ItemCollector : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Finish"))
         {
+            gm.newScene = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
@@ -29,6 +46,7 @@ public class ItemCollector : MonoBehaviour
         {
             sm.PlayDeathSound();
             Destroy(collision.gameObject);
+            hasKey = false;
         }
     }
 }

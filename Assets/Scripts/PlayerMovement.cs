@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private enum MovementState { idle, running, jumping, shooting }
 
-    // Update is called once per frame
+    
     private void Update()
     {
         movement = Input.GetAxisRaw("Horizontal");

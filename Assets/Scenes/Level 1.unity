@@ -433,7 +433,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &222331869
 PrefabInstance:
@@ -974,7 +974,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 757165743065331729, guid: 04fbfa779a8198847ad6ba78db07e574, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 757165743065331729, guid: 04fbfa779a8198847ad6ba78db07e574, type: 3}
       propertyPath: m_LocalScale.x
@@ -59911,7 +59911,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 757165743065331729, guid: 04fbfa779a8198847ad6ba78db07e574, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 757165743065331729, guid: 04fbfa779a8198847ad6ba78db07e574, type: 3}
       propertyPath: m_LocalPosition.x
@@ -60132,7 +60132,6 @@ GameObject:
   - component: {fileID: 1401825635}
   - component: {fileID: 1401825634}
   - component: {fileID: 1401825633}
-  - component: {fileID: 1401825637}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -60401,20 +60400,6 @@ MonoBehaviour:
   - {fileID: 1977500209}
   fullHeart: {fileID: -1087419681, guid: a6c424b87ce658b4db61595a958cffc6, type: 3}
   emptyHeart: {fileID: -2037493080, guid: a6c424b87ce658b4db61595a958cffc6, type: 3}
---- !u!114 &1401825637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401825625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5ef2c9e2d84fcf429d1096a2a58e9ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1401825631}
-  rb: {fileID: 1401825626}
 --- !u!224 &1417736638 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6574573407494322440, guid: 30c2818551d41a84fa13a9d64c766ddf, type: 3}

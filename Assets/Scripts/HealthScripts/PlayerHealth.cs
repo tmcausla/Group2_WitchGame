@@ -75,11 +75,20 @@ public class PlayerHealth : MonoBehaviour
             if (i < health)
             {
                 hearts[i].sprite = fullHeart;
-                hearts[i].enabled = true;
-                return;
             }
-            hearts[i].sprite = emptyHeart;
-            hearts[i].enabled = false;
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+
+            if (i < maxHealth)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
         }
     }
 
@@ -114,6 +123,10 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(damage);
+        }
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            Die();
         }
     }
 }

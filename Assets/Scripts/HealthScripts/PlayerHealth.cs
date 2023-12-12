@@ -65,6 +65,7 @@ public class PlayerHealth : MonoBehaviour
 
         //anim.SetTrigger("death");
     }
+
     public void RestartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     // Update is called once per frame
@@ -123,6 +124,10 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(damage);
+        }
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            Die();
         }
     }
 }

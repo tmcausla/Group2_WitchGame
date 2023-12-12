@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+    private static GameManager instance;
+    public Vector3 playerCheckpoint;
+
+    public bool newScene = false;
+    private void Awake()
+    {
+        if (instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(instance);
+
+        playerCheckpoint = GameObject.FindWithTag("Player").transform.position;
+    }
+}

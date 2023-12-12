@@ -4,11 +4,16 @@ public class SkeletonMovement : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public Rigidbody2D rb;
-    public GameObject player;
+    private GameObject player;
     public Animator anim;
 
     [SerializeField] private float speed;
     [SerializeField] private float range;
+
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
 
     private void Update()
     {

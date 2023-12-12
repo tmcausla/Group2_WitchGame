@@ -3,13 +3,18 @@ using UnityEngine;
 public class SeePlayer : MonoBehaviour
 {
 
-    public Transform playerTransform;
+    private Transform playerTransform;
     public GameObject Arrow;
     public bool isSeeing;
     public float seeDistance;
     public float countDown;
     public float countDownOver;
     public bool shooting;
+
+    private void Start()
+    {
+        playerTransform = GameObject.FindWithTag("Player").transform;
+    }
 
     // Update is called once per frame
     private void Update()

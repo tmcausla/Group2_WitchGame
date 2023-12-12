@@ -1,7 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class SlimeHealth : MonoBehaviour
 {
     private readonly ShootEnemy shootEnemy;
     public float badHealth = 1;
@@ -26,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void GetHurt(int value)
     {
+        _ = StartCoroutine(Invunerability());
         badHealth = Mathf.Clamp(badHealth - value, 0, badMaxHealth);
         if (badHealth <= 0)
         {
@@ -37,13 +39,12 @@ public class EnemyHealth : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        for (int i = 1; i < 4; i++)
-        {
-            if (collision.gameObject.CompareTag($"Bullet{i}"))
+       
+            if (collision.gameObject.CompareTag("Bullet2"))
             {
                 GetHurt(goodDamage);
             }
-        }
+        
     }
 
     public void DropChance()
@@ -77,5 +78,17 @@ public class EnemyHealth : MonoBehaviour
             }
 
         }
+    }
+
+    private IEnumerator Invunerability()
+    {
+        for (int i = 0; i < numberOfFlashes; i++)
+        {
+            spriteRend.color = new Color(1, 0, 0, 0.5f);
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+        }
+
     }
 }

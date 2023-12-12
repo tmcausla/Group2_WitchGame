@@ -146,4 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f0a681aa878424795f8066fe7f7751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Effect: {fileID: 7928405400294878835, guid: 68ca876978f7d9a409bd7a98a339428d, type: 3}
+  ParticleEffect: {fileID: 7928405400294878838, guid: 68ca876978f7d9a409bd7a98a339428d, type: 3}
   force: 15

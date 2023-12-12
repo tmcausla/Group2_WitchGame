@@ -1,8 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     private readonly GameObject Bullet1;
+    public GameObject Effect;
+    public ParticleSystem ParticleEffect;
     private Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
@@ -25,6 +28,7 @@ public class Bullet : MonoBehaviour
 
         Physics2D.IgnoreLayerCollision(6, 8, true);
         Physics2D.IgnoreLayerCollision(8, 8, true);
+
     }
 
     private void Update()
@@ -36,5 +40,10 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) => Destroy(gameObject);
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Instantiate(Effect, transform.position, transform.rotation);
+        ParticleEffect.Play();
+        Destroy(gameObject);
+    }
 }

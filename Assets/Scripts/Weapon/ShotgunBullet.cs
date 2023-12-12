@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ShotgunBullet : MonoBehaviour
 {
+    public GameObject Effect;
+    public ParticleSystem ParticleEffect;
     private readonly float projectileLife = 5f;
     private float projectileCount;
     private Vector3 mousePos;
@@ -37,5 +39,10 @@ public class ShotgunBullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) => Destroy(gameObject);
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Instantiate(Effect, transform.position, transform.rotation);
+        ParticleEffect.Play();
+        Destroy(gameObject);
+    }
 }

@@ -28,7 +28,8 @@ public class PlayerHealth : MonoBehaviour
     public Sprite emptyHeart;
 
     private Rigidbody2D rb;
-    private Animator anim;
+    [SerializeField] private Animator anim;
+    private PlaySounds sm;
 
     // Start is called before the first frame update
     private void Start()
@@ -40,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
             spriteRend = GetComponent<SpriteRenderer>();
+            sm = FindObjectOfType<PlaySounds>();
         }
     }
 
@@ -58,12 +60,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        //deathSoundEffect.Play();
+        sm.PlayDeathSound();
         rb.bodyType = RigidbodyType2D.Static;
+        anim.SetTrigger("death");
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        RestartLevel();
-
-        //anim.SetTrigger("death");
+        
     }
 
     public void RestartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);

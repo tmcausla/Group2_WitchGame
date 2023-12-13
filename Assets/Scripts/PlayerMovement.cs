@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         UpdateAnimation();
     }
 
+    //changes animation based on current type of movement
     private void UpdateAnimation()
     {
         MovementState state;
@@ -57,5 +58,6 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("state", (int)state);
     }
 
+    //checks if player is in contact with ground
     public bool IsGrounded() => Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
 }

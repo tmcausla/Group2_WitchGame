@@ -3989,7 +3989,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1401825636}
-  unlockShoot: {fileID: 1401825633}
   playerMana: {fileID: 1401825635}
   Prefab: {fileID: 3326228850054343624, guid: 451896e74c32296478e47c6056cb7a17, type: 3}
   bulletTransform: {fileID: 1718187008}
@@ -91228,6 +91227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCheckpoint: {x: 0, y: 0, z: 0}
   newScene: 0
+  unlockedSpells: 0
 --- !u!4 &1124917021
 Transform:
   m_ObjectHideFlags: 0
@@ -91782,7 +91782,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1401825636}
-  unlockShoot: {fileID: 1401825633}
   playerMana: {fileID: 1401825635}
   Prefab: {fileID: 7171939991310505236, guid: 59b9950560d8acc4c9313a76e9176ac2, type: 3}
   shotgunTransform: {fileID: 1718187008}
@@ -92769,7 +92768,6 @@ GameObject:
   - component: {fileID: 1401825636}
   - component: {fileID: 1401825635}
   - component: {fileID: 1401825634}
-  - component: {fileID: 1401825633}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -92946,20 +92944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fd83933e1150e4285c30615f1f92e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasKey: 0
---- !u!114 &1401825633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401825625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 957c24daf8736e04298313fe87fee190, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unlock: 0
+  keys: 0
+  healthValue: 1
 --- !u!114 &1401825634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93026,7 +93012,7 @@ MonoBehaviour:
   hurtSound: {fileID: 0}
   iFramesDuration: 2
   numberOfFlashes: 6
-  deathSoundEffect: {fileID: 0}
+  deathSoundEffect: {fileID: 667580110}
   hearts:
   - {fileID: 1803621432}
   - {fileID: 348204595}
@@ -93038,6 +93024,7 @@ MonoBehaviour:
   - {fileID: 1977500209}
   fullHeart: {fileID: -1087419681, guid: a6c424b87ce658b4db61595a958cffc6, type: 3}
   emptyHeart: {fileID: -2037493080, guid: a6c424b87ce658b4db61595a958cffc6, type: 3}
+  anim: {fileID: 1401825631}
 --- !u!4 &1403849681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8152896723711405594, guid: bf257adb79ebf7f49b51ba7c4c2df02e, type: 3}
@@ -94639,7 +94626,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1401825636}
-  unlockShoot: {fileID: 1401825633}
   playerMana: {fileID: 1401825635}
   Prefab: {fileID: 1872130299540367622, guid: 35f3edf87776238418992f417336a301, type: 3}
   bulletTransform: {fileID: 1718187008}

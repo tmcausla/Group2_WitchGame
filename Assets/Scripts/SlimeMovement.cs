@@ -11,6 +11,7 @@ public class SlimeMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //slime detects boundaries to change direction of movement
         if (collision.gameObject.CompareTag("LeftBound") && rb.velocity.x < 0f)
         {
             speed *= -1f;

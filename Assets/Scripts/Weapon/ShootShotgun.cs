@@ -3,7 +3,7 @@ using UnityEngine;
 public class ShootShotgun : MonoBehaviour
 {
     public PlayerHealth playerHealth;
-    public UnlockShoot unlockShoot;
+    private GameManager gm;
     public PlayerMana playerMana;
     public GameObject Prefab;
     public Transform shotgunTransform;
@@ -16,14 +16,18 @@ public class ShootShotgun : MonoBehaviour
     private SpriteRenderer spriteRend;
 
     // Start is called before the first frame update
-    private void Start() => spriteRend = GetComponent<SpriteRenderer>();
+    private void Start()
+    {
+        spriteRend = GetComponent<SpriteRenderer>();
+        gm = FindObjectOfType<GameManager>();
+    }
 
     // Update is called once per frame
     private void Update()
     {
 
         transform.rotation = Quaternion.identity;
-        if (unlockShoot.unlock <= 1 || playerHealth.health <= 0)
+        if (gm.unlockedSpells <= 1 || playerHealth.health <= 0)
         {
             gameObject.SetActive(false);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;

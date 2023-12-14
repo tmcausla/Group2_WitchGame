@@ -3,7 +3,6 @@ using UnityEngine;
 public class ShootBullet : MonoBehaviour
 {
     public PlayerHealth playerHealth;
-    public UnlockShoot unlockShoot;
     public PlayerMana playerMana;
     public GameObject Prefab;
     public Transform bulletTransform;
@@ -12,17 +11,22 @@ public class ShootBullet : MonoBehaviour
     public float timeBetweenFiring;
     public int lessMana = 1;
     private SpriteRenderer spriteRend;
+    private GameManager gm;
 
     // Start is called before the first frame update
-    private void Start() => spriteRend = GetComponent<SpriteRenderer>();
+    private void Start()
+    {
+        spriteRend = GetComponent<SpriteRenderer>();
+        gm = FindObjectOfType<GameManager>();
+    }
 
     // Update is called once per frame
     private void Update()
     {
-        if (unlockShoot.unlock <= 0 || playerHealth.health <= 0)
+        if (gm.unlockedSpells <= 0 || playerHealth.health <= 0)
         {
             gameObject.SetActive(false);
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            spriteRend.enabled = false;
             return;
         }
 

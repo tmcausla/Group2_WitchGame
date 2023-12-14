@@ -3,7 +3,7 @@ using UnityEngine;
 public class ShootSniper : MonoBehaviour
 {
     public PlayerHealth playerHealth;
-    public UnlockShoot unlockShoot;
+    private GameManager gm;
     public PlayerMana playerMana;
     public GameObject Prefab;
     public Transform bulletTransform;
@@ -14,12 +14,16 @@ public class ShootSniper : MonoBehaviour
     private SpriteRenderer spriteRend;
 
     // Start is called before the first frame update
-    private void Start() => spriteRend = GetComponent<SpriteRenderer>();
+    private void Start()
+    {
+        spriteRend = GetComponent<SpriteRenderer>();
+        gm = FindObjectOfType<GameManager>();
+    }
 
     // Update is called once per frame
     private void Update()
     {
-        if (unlockShoot.unlock <= 2 || playerHealth.health <= 0)
+        if (gm.unlockedSpells <= 2 || playerHealth.health <= 0)
         {
             gameObject.SetActive(false);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;

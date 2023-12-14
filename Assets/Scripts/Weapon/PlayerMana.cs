@@ -5,8 +5,7 @@ public class PlayerMana : MonoBehaviour
 {
     public Image[] manas;
     public float mana;
-    private readonly float maxMana = 8;
-    private SpriteRenderer spriteRend;
+    public readonly float maxMana = 8;
 
     public Sprite fullMana;
     public Sprite emptyMana;
@@ -14,7 +13,6 @@ public class PlayerMana : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        spriteRend = GetComponent<SpriteRenderer>();
         mana = maxMana;
     }
 

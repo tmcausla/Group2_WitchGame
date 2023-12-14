@@ -36,5 +36,13 @@ public class BossDamage : MonoBehaviour
             colInfo.GetComponent <PlayerHealth>().TakeDamage(enragedAttackDamage);
         }
     }
+    void OnDrawGizmosSelected()
+    {
+        Vector3 pos = transform.position;
+        pos += transform.right * attackOffset.x;
+        pos += transform.up * attackOffset.y;
+
+        Gizmos.DrawWireSphere(pos, attackRange);
+    }
 
 }

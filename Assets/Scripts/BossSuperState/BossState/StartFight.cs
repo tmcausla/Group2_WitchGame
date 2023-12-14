@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StartFight : NormalBoss
 {
-    public float counter;
     public StartFight(Boss boss, BossStateMachine stateMachine, BossData bossdata, string animBoolName) : base(boss, stateMachine, bossdata, animBoolName)
     {
     }
@@ -17,20 +16,19 @@ public class StartFight : NormalBoss
     public override void Enter()
     {
         base.Enter();
-        counter = Time.deltaTime;
-        boss.SetVelocityZero();
     }
 
     public override void Exit()
     {
         base.Exit();
-        counter = 0f;
+        boss.counter = 0f;
+        boss.bossHealth.isInvulnerable = true;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (counter > 10)
+        if (boss.counter > bossData.change)
         {
             stateMachine.ChangeState(boss.NormalChase);
         }

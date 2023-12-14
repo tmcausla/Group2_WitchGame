@@ -24,12 +24,13 @@ public class BecomeEnraged : EnragedBoss
     public override void Exit()
     {
         base.Exit();
+        boss.counter = 0;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if(counter > 10)
+        if(boss.counter > 2)
         {
             stateMachine.ChangeState(boss.EnragedChase);
         }

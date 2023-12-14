@@ -14,30 +14,35 @@ public class NormalCharge : NormalBoss
     {
         base.DoChecks();
         doneCharge = boss.CheckCharge();
-        boss.ChargeDirection();
+        
     }
 
     public override void Enter()
     {
         base.Enter();
+        boss.ChargeDirection();
         boss.counter = 0;
+        boss.StartCharge();
+        boss.SetChargeVelocity(bossData.charge);
     }
 
     public override void Exit()
     {
         base.Exit();
         doneCharge = false;
+        boss.counter = 0;
+        boss.ChargeDirection();
+        boss.SetVelocityZero();
+        boss.ReturnToMiddle();
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        boss.StartCharge();
-        boss.SetChargeVelocity(bossData.charge);
+
         if (doneCharge)
         {
-            boss.SetVelocityZero();
-            boss.ReturnToMiddle();
+ 
             stateMachine.ChangeState(boss.RestTime);
         }
     }

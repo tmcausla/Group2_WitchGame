@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnragedRest : EnragedBoss
 {
-    public BossHealth bossHealth;
-    public float counter;
     public EnragedRest(Boss boss, BossStateMachine stateMachine, BossData bossdata, string animBoolName) : base(boss, stateMachine, bossdata, animBoolName)
     {
     }
@@ -18,23 +16,27 @@ public class EnragedRest : EnragedBoss
     public override void Enter()
     {
         base.Enter();
-        bossHealth.isInvulnerable = false;
-        counter = Time.deltaTime;
+        boss.bossHealth.isInvulnerable = false;
+        boss.counter = 0;
     }
 
     public override void Exit()
     {
         base.Exit();
-        bossHealth.isInvulnerable = true;
-        counter = 0;
+        boss.bossHealth.isInvulnerable = true;
+        boss.counter = 0;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (counter > 20)
+        if (boss.counter > 10)
         {
             stateMachine.ChangeState(boss.EnragedChase);
+        }
+        if(boss.bossHealth.health <= 0)
+        {
+            boss.Death();
         }
 
 

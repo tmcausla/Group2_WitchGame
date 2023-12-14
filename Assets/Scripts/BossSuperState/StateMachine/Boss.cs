@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
+    public BossHealth bossHealth;
     public BossStateMachine StateMachine {  get; private set; }
-
     public Transform LightningOne;
     public Transform LightningTwo;
     public Transform LightningThree;
     public Transform LightningFour;
     public Transform LightningFive;
-    public GameObject LightningStrike;
-    public Transform player;
+    public GameObject LaserStrike;
+    public GameObject player;
+    public GameObject deathEffect;
     public Transform ChargePoint;
     public Transform EndCharge;
     public Transform MiddlePoint;
@@ -65,6 +66,7 @@ public class Boss : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player");
         Anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         Collider2D = GetComponent<BoxCollider2D>();
@@ -77,6 +79,7 @@ public class Boss : MonoBehaviour
     {
         CurrentVelocity = rb.velocity;
         StateMachine.CurrentState.LogicUpdate();
+        counter += Time.deltaTime;
 
     }
     private void FixedUpdate()
@@ -92,7 +95,7 @@ public class Boss : MonoBehaviour
 
     public void SetVelocityX(float velocity)
     {
-        workspace.Set(velocity * (transform.position.x - player.position.x), CurrentVelocity.y);
+        workspace.Set(velocity * (player.transform.position.x - transform.position.x), CurrentVelocity.y);
         rb.velocity = workspace;
         CurrentVelocity = workspace;
     }
@@ -119,20 +122,19 @@ public class Boss : MonoBehaviour
         Vector3 flipped = transform.localScale;
         flipped.z *= -1f;
 
-        if (transform.position.x > player.position.x && isFlipped)
+        if (transform.position.x < player.transform.position.x && isFlipped)
         {
             transform.localScale = flipped;
             transform.Rotate(0f, 180f, 0f);
             isFlipped = false;
         }
-        else if(transform.position.x < player.position.x && !isFlipped)
+        else if(transform.position.x > player.transform.position.x && !isFlipped)
         {
             transform.localScale = flipped;
             transform.Rotate(0f, 180f, 0f);
             isFlipped = true;
         }
     }
-
     public void ChargeDirection()
     {
         Vector3 flipped = transform.localScale;
@@ -156,16 +158,16 @@ public class Boss : MonoBehaviour
 
     public void LightningAttack()
     {
-        Instantiate(LightningStrike, LightningOne.position, Quaternion.identity);
-        Destroy(LightningStrike, 1);
-        Instantiate(LightningStrike, LightningTwo.position, Quaternion.identity);
-        Destroy(LightningStrike, 1);
-        Instantiate(LightningStrike, LightningThree.position, Quaternion.identity);
-        Destroy(LightningStrike, 1);
-        Instantiate(LightningStrike, LightningFour.position, Quaternion.identity);
-        Destroy(LightningStrike, 1);
-        Instantiate(LightningStrike, LightningFive.position, Quaternion.identity);
-        Destroy(LightningStrike, 1);
+        Instantiate(LaserStrike, LightningOne.position, Quaternion.Euler(0f, 0f, 90f)); ;
+        Instantiate(LaserStrike, LightningTwo.position, Quaternion.Euler(0f, 0f, 90f));
+        Instantiate(LaserStrike, LightningThree.position, Quaternion.Euler(0f, 0f, 90f));
+        Instantiate(LaserStrike, LightningFour.position, Quaternion.Euler(0f, 0f, 90f));
+        Instantiate(LaserStrike, LightningFive.position, Quaternion.Euler(0f, 0f, 90f));
+    }
+    public void Death()
+    {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();

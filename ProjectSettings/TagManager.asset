@@ -16,6 +16,9 @@ TagManager:
   - Bullet2
   - Bullet3
   - MoreWeapon
+  - Health
+  - Mana
+  - Laser
   layers:
   - Default
   - TransparentFX
@@ -26,8 +29,8 @@ TagManager:
   - Player
   - Enemies
   - Bullet
-  - 
-  - 
+  - Boss
+  - Laser
   - 
   - 
   - 

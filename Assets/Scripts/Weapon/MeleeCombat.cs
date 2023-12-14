@@ -5,11 +5,13 @@ public class MeleeCombat : MonoBehaviour
     public Animator anim;
     public Transform attackPoint;
     public LayerMask enemyLayers;
+    public LayerMask bossLayers;
 
     public float attackRange = 0.5f;
     public int attackDamage = 2;
     public float attackRate = 2f;
     private float nextAttackTime = 0f;
+
 
     // Update is called once per frame
     private void Update()
@@ -28,10 +30,16 @@ public class MeleeCombat : MonoBehaviour
     {
         anim.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
         foreach (Collider2D enemyCollider2D in hitEnemies)
         {
             enemyCollider2D.GetComponent<EnemyHealth>().GetHurt(attackDamage);
+            
+        }
+        Collider2D[] hitBoss = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, bossLayers);
+        foreach (Collider2D enemyCollider2D in hitBoss)
+        {
+            enemyCollider2D.GetComponent<BossHealth>().TakeDamage(attackDamage);
+
         }
     }
 

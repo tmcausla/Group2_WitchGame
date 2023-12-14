@@ -18,13 +18,13 @@ public class EnragedChase : EnragedBoss
     public override void Enter()
     {
         base.Enter();
-        boss.counter = Time.deltaTime;
     }
 
     public override void Exit()
     {
         base.Exit();
         inRange = false;
+        boss.counter = 0;
     }
 
     public override void LogicUpdate()
@@ -36,7 +36,7 @@ public class EnragedChase : EnragedBoss
         {
             stateMachine.ChangeState(boss.EnragedAttack);
         }
-        else if(boss.counter > 30f)
+        else if(boss.counter > 20f)
         {
             stateMachine.ChangeState(boss.EnragedCharge);
         }

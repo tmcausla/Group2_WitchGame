@@ -20,19 +20,21 @@ public class EnragedCharge : EnragedBoss
     {
         base.Enter();
         boss.counter = 0;
+        boss.StartCharge();
+        boss.SetChargeVelocity(bossData.angryCharge);
     }
 
     public override void Exit()
     {
         base.Exit();
         doneCharge = false;
+        boss.ChargeDirection();
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        boss.StartCharge();
-        boss.SetChargeVelocity(bossData.angryCharge);
+
         if (doneCharge )
         {
             boss.SetVelocityZero();

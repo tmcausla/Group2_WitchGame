@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class RestTime : NormalBoss
 {
-    public BossHealth bossHealth;
-    public float counter = Time.deltaTime;
     public RestTime(Boss boss, BossStateMachine stateMachine, BossData bossdata, string animBoolName) : base(boss, stateMachine, bossdata, animBoolName)
     {
     }
@@ -18,24 +16,25 @@ public class RestTime : NormalBoss
     public override void Enter()
     {
         base.Enter();
-        bossHealth.isInvulnerable = false;
+        boss.bossHealth.isInvulnerable = false;
     }
 
     public override void Exit()
     {
         base.Exit();
-        bossHealth.isInvulnerable = true;
+        boss.bossHealth.isInvulnerable = true;
+        boss.counter = 0;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
 
-        if(counter > 20)
+        if(boss.counter > 10f)
         {
             stateMachine.ChangeState(boss.NormalChase);
         }
-        else if (bossHealth.health < 50)
+        else if (boss.bossHealth.health < 50)
         {
             stateMachine.ChangeState(boss.BecomeEnraged);
         }

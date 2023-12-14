@@ -23,7 +23,6 @@ public class NormalChase : NormalBoss
     public override void Enter()
     {
         base.Enter();
-        boss.counter = Time.deltaTime;
         
     }
 
@@ -38,12 +37,11 @@ public class NormalChase : NormalBoss
         base.LogicUpdate();
         boss.CheckIfShouldFlip();
         boss.SetVelocityX(bossData.normalSpeed);
-
         if (inRange)
         {
             stateMachine.ChangeState(boss.BossAttack);
         }
-        else if (boss.counter > 30f)
+        else if (boss.counter > 15f)
         {
             stateMachine.ChangeState(boss.NormalCharge);
         }

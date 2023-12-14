@@ -18,20 +18,20 @@ public class LightningRound : EnragedBoss
     {
         base.Enter();
         boss.SetVelocityZero();
-        counter = Time.deltaTime;
+        boss.LightningAttack();
     }
 
     public override void Exit()
     {
         base.Exit();
-        counter = 0;
+        boss.counter = 0;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        boss.LightningAttack();
-        if(counter > 10)
+        
+        if(boss.counter > 3)
         {
             stateMachine.ChangeState(boss.EnragedRest);
         }

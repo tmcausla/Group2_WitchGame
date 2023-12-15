@@ -3,5 +3,5 @@ using UnityEngine.SceneManagement;
 
 public class RestartGame : MonoBehaviour
 {
-    public void OnButtonPressed() => SceneManager.LoadScene(0);
+    public void OnButtonPressed() => SceneManager.GetSceneByName("Main Menu");
 }

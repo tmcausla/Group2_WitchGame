@@ -2983,7 +2983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &667580110
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2996,7 +2996,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 68e07db2c7dacd744b847b5dc9b77868, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.23
+  m_Volume: 0.059
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -113526,6 +113526,10 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1401825631}
+    - target: {fileID: 7906230313017117882, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 7906230313017117883, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
       propertyPath: manas.Array.data[0]
       value: 

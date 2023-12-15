@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 8774356683626546501}
   - component: {fileID: 5279550555462834497}
   - component: {fileID: 6284910991937946160}
-  - component: {fileID: 7141273273574892807}
   - component: {fileID: 8372680351410531409}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Health
   m_TagString: Health
   m_Icon: {fileID: 0}
@@ -124,19 +123,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &7141273273574892807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5313994066146348952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3677637052cda48488a75ff52eb9c27c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthValue: 1
 --- !u!50 &8372680351410531409
 Rigidbody2D:
   serializedVersion: 4

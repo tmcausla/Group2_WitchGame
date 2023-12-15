@@ -1750,7 +1750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359371375}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27468666, y: -9.102597, z: 0.43679178}
+  m_LocalPosition: {x: 0.27468666, y: -0.05, z: 0.43679178}
   m_LocalScale: {x: 0.027496045, y: 0.027496045, z: 0.027496045}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2389,7 +2389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db68e903c4d84c4b9f99c46738527b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1401825628}
+  player: {fileID: 423332652}
   offset: 2
 --- !u!1001 &542803857
 PrefabInstance:
@@ -2991,7 +2991,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667580109}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 68e07db2c7dacd744b847b5dc9b77868, type: 3}
@@ -4387,7 +4387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925271152}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.23850527, y: -8.988601, z: 0.4376262}
+  m_LocalPosition: {x: 0.23850527, y: -0.21, z: 0.4376262}
   m_LocalScale: {x: 0.027496045, y: 0.027496045, z: 0.027496045}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -112034,7 +112034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947681592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.26763, y: -1.3540878, z: -0.085409164}
+  m_LocalPosition: {x: 123.3, y: -1.3540878, z: -0.085409164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112794,7 +112794,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060619797}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.672373, y: -1.3540878, z: -0.085409164}
+  m_LocalPosition: {x: -42.6, y: -1.3540878, z: -0.085409164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -113241,6 +113241,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 1246763013937450956, guid: 06c49095f6b480e46be6fa39ba21f435, type: 3}
+      propertyPath: m_Constraints
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1246763013937450958, guid: 06c49095f6b480e46be6fa39ba21f435, type: 3}
       propertyPath: player
       value: 
@@ -113454,11 +113458,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7906230313017117828, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100.6
+      value: 14.09
       objectReference: {fileID: 0}
     - target: {fileID: 7906230313017117828, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.64
+      value: 54.59
       objectReference: {fileID: 0}
     - target: {fileID: 7906230313017117828, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
       propertyPath: m_LocalPosition.z

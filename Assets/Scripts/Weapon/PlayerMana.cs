@@ -5,15 +5,22 @@ public class PlayerMana : MonoBehaviour
 {
     public Image[] manas;
     public float mana;
-    public readonly float maxMana = 8;
+    public float maxMana = 8;
 
     public Sprite fullMana;
     public Sprite emptyMana;
+    private GameManager gm;
+
+    private void Awake()
+    {
+        gm = FindObjectOfType<GameManager>();
+    }
 
     // Start is called before the first frame update
     private void Start()
     {
-        mana = maxMana;
+        maxMana = gm.playerMaxMana;
+        mana = gm.playerMana;
     }
 
     // Update is called once per frame
@@ -24,6 +31,9 @@ public class PlayerMana : MonoBehaviour
             manas[i].sprite = i < mana ? fullMana : emptyMana;
             manas[i].enabled = i < maxMana;
         }
+
+        gm.playerMana = mana;
+        gm.playerMaxMana = maxMana;
     }
 
     public void UseMana(int manaAmount) => mana = Mathf.Clamp(mana - manaAmount, 0, maxMana);

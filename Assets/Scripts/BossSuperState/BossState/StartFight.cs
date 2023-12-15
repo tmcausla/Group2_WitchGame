@@ -16,6 +16,7 @@ public class StartFight : NormalBoss
     public override void Enter()
     {
         base.Enter();
+        boss.counter = 0;
     }
 
     public override void Exit()
@@ -28,7 +29,7 @@ public class StartFight : NormalBoss
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (boss.counter > 5)
+        if (boss.counter > 4)
         {
             stateMachine.ChangeState(boss.NormalChase);
         }

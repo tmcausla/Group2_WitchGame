@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
 
-    private enum MovementState { idle, running, jumping, shooting }
+    private enum MovementState { idle, running, jumping }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         UpdateAnimation();
-        CheckDirection();
+        
     }
 
     //changes animation based on current type of movement
@@ -59,12 +59,13 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.idle;
         }
 
-        if (rb.velocity.y is < (-0.1f) or > 0.1f)
+        if ((rb.velocity.y is < (-0.1f) or > 0.1f) && !IsGrounded())
         {
             state = MovementState.jumping;
         }
 
         anim.SetInteger("state", (int)state);
+        CheckDirection();
     }
     public void CheckDirection()
     {

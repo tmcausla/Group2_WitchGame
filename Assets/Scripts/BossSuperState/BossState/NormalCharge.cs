@@ -41,7 +41,6 @@ public class NormalCharge : NormalBoss
 
         if (doneCharge)
         {
- 
             stateMachine.ChangeState(boss.RestTime);
         }
     }

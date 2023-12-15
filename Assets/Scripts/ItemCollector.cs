@@ -53,6 +53,7 @@ public class ItemCollector : MonoBehaviour
         {
             Destroy(collision.gameObject);
             gm.unlockedSpells++;
+            gameObject.GetComponent<PlayerMana>().mana = gameObject.GetComponent<PlayerMana>().maxMana;
         }
 
         //When player picks up health

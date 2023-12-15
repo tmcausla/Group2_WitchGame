@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     public float force;
     private readonly float projectileLife = 5f;
     private float projectileCount;
+    public float damage;
 
     private void Start()
     {

@@ -149,3 +149,4 @@ MonoBehaviour:
   Effect: {fileID: 7508636649462937753, guid: 335966a1b27367343847f5114a63730e, type: 3}
   ParticleEffect: {fileID: 7508636649462937756, guid: 335966a1b27367343847f5114a63730e, type: 3}
   force: 6
+  damage: 3

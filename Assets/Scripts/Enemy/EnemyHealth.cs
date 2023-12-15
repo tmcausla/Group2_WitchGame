@@ -5,8 +5,7 @@ public class EnemyHealth : MonoBehaviour
 {
     private readonly ShootEnemy shootEnemy;
     public float badHealth = 1;
-    private readonly float badMaxHealth = 8;
-    private readonly int goodDamage = 2;
+    [SerializeField] private float badMaxHealth = 8;
     private int chance;
     private bool dropRate = false;
     private bool spawn = false;
@@ -24,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
     }
 
-    public void GetHurt(int value)
+    public void GetHurt(float value)
     {
         badHealth = Mathf.Clamp(badHealth - value, 0, badMaxHealth);
         if (badHealth <= 0)
@@ -37,12 +36,14 @@ public class EnemyHealth : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        for (int i = 1; i < 4; i++)
+        if (collision.gameObject.CompareTag("Bullet1"))
         {
-            if (collision.gameObject.CompareTag($"Bullet{i}"))
-            {
-                GetHurt(goodDamage);
-            }
+            GetHurt(collision.gameObject.GetComponent<Bullet>().damage);
+        }
+
+        if (collision.gameObject.CompareTag("Bullet2"))
+        {
+            GetHurt(collision.gameObject.GetComponent<ShotgunBullet>().damage);
         }
     }
 

@@ -9,6 +9,12 @@ public class Boulder : MonoBehaviour
     public GameObject health;
     public GameObject mana;
     private int chance;
+    private Transform upright;
+
+    private void Start()
+    {
+        upright = gameObject.transform;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -25,12 +31,12 @@ public class Boulder : MonoBehaviour
 
         if (chance <= 4)
         {
-             _ = Instantiate(health, transform.position, transform.rotation);
+             _ = Instantiate(health, transform.position, upright.rotation);
         }
 
         if  (chance >= 16)
         {
-            _ = Instantiate(mana, transform.position, transform.rotation);
+            _ = Instantiate(mana, transform.position, upright.rotation);
         }
     }
 }

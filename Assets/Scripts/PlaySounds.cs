@@ -12,6 +12,7 @@ public class PlaySounds : MonoBehaviour
     public AudioClip bossDeath;
     public AudioClip laserBeam;
     public AudioClip damageEnemy;
+    public AudioClip victory;
 
 
     private void Awake()
@@ -33,4 +34,5 @@ public class PlaySounds : MonoBehaviour
     public void PlayBossDeathSound() => soundManager.PlayOneShot(bossDeath);
     public void PlayLaserBeam() => soundManager.PlayOneShot(laserBeam);
     public void HurtEnemy() => soundManager.PlayOneShot(damageEnemy);
+    public void PlayVictory() => soundManager.PlayOneShot(victory);
 }

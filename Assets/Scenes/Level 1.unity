@@ -2226,7 +2226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db68e903c4d84c4b9f99c46738527b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 423332652}
+  player: {fileID: 1401825628}
   offset: 2
 --- !u!1001 &542803857
 PrefabInstance:

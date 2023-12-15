@@ -39,7 +39,7 @@ public class NormalCharge : NormalBoss
     {
         base.LogicUpdate();
 
-        if (doneCharge && boss.counter > 2)
+        if (doneCharge && boss.counter > 1)
         {
             stateMachine.ChangeState(boss.RestTime);
         }

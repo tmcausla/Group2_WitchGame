@@ -156,6 +156,7 @@ public class Boss : MonoBehaviour
         return Vector2.Distance(transform.position, player.transform.position) < bossData.range;
         
     }
+
     public bool CheckCharge()
     {
         return Vector2.Distance(transform.position, EndCharge.position) < 1f;

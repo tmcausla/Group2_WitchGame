@@ -8,7 +8,7 @@ public class DamageHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player1"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             playerHealth.TakeDamage(damage);
         }

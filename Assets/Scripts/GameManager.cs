@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Vector3 playerCheckpoint;
 
     public bool newScene = false;
+    public bool dead = false;
 
     public int unlockedSpells = 0;
     public float playerHealth = 8;

@@ -20,7 +20,7 @@ public class PlayerMana : MonoBehaviour
     private void Start()
     {
         maxMana = gm.playerMaxMana;
-        mana = gm.playerMana;
+        mana = gm.dead ? maxMana : gm.playerMana;
     }
 
     // Update is called once per frame

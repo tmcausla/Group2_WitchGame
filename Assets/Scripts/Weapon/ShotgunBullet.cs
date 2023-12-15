@@ -10,6 +10,7 @@ public class ShotgunBullet : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     public float force;
+    public float damage;
 
     // Start is called before the first frame update
     private void Start()

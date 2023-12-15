@@ -12,7 +12,7 @@ public class ShootShotgun : MonoBehaviour
     public bool canFire;
     private float timer;
     public float timeBetweenFiring;
-    public int lessMana = 1;
+    public int lessMana = 2;
     private SpriteRenderer spriteRend;
 
     // Start is called before the first frame update

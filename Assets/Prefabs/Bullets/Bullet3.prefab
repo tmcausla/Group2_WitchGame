@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -732065228066162295}
   m_Layer: 0
   m_Name: Bullet3
-  m_TagString: Bullet3
+  m_TagString: Bullet1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,3 +149,4 @@ MonoBehaviour:
   Effect: {fileID: 7928405400294878835, guid: 68ca876978f7d9a409bd7a98a339428d, type: 3}
   ParticleEffect: {fileID: 7928405400294878838, guid: 68ca876978f7d9a409bd7a98a339428d, type: 3}
   force: 15
+  damage: 2

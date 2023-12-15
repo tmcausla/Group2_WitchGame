@@ -123,6 +123,7 @@ MonoBehaviour:
   Effect: {fileID: 3125110612510359497, guid: 4ff470a3e176c7043bcf60358c7b67e9, type: 3}
   ParticleEffect: {fileID: 3125110612510359510, guid: 4ff470a3e176c7043bcf60358c7b67e9, type: 3}
   force: 6
+  damage: 1
 --- !u!61 &8465172309844739995
 BoxCollider2D:
   m_ObjectHideFlags: 0

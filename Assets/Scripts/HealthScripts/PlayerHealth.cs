@@ -50,7 +50,15 @@ public class PlayerHealth : MonoBehaviour
         }
 
         maxHealth = gm.playerMaxHealth;
-        health = gm.playerHealth;
+        if (gm.dead)
+        {
+            health = maxHealth;
+            gm.dead = false;
+        }
+        else
+        {
+            health = gm.playerHealth;
+        }
     }
 
     public void TakeDamage(int amount)
@@ -68,11 +76,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        gm.dead = true;
         sm.PlayDeathSound();
         rb.bodyType = RigidbodyType2D.Static;
-        anim.SetTrigger("death");
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        
+        anim.SetTrigger("death");        
     }
 
     public void RestartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);

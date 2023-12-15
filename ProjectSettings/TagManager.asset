@@ -20,6 +20,7 @@ TagManager:
   - Mana
   - Laser
   - CameraPull
+  - Terrain
   layers:
   - Default
   - TransparentFX

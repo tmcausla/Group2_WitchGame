@@ -22,7 +22,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private AudioSource deathSoundEffect;
     private SpriteRenderer spriteRend;
     public Image[] hearts;
-    private readonly DamageHealth damageHealth;
 
     public Sprite fullHeart;
     public Sprite emptyHeart;

@@ -3,7 +3,7 @@ using UnityEngine;
 public class DamageHealth : MonoBehaviour
 {
     public PlayerHealth playerHealth;
-    public int damage = 2;
+    public int damage = 0;
     public bool knockPlayer = false;
 
     private void OnCollisionEnter2D(Collision2D collision)

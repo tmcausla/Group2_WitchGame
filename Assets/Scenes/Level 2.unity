@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &71361785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1246763013937450952, guid: 06c49095f6b480e46be6fa39ba21f435, type: 3}
+  m_PrefabInstance: {fileID: 832441244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cb3bf364a887843a4ac1e59f8be52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &103039638
 GameObject:
   m_ObjectHideFlags: 0
@@ -69132,7 +69143,7 @@ MonoBehaviour:
   playerCheckpoint: {x: 0, y: 0, z: 0}
   newScene: 0
   dead: 0
-  unlockedSpells: 0
+  unlockedSpells: 3
   playerHealth: 8
   playerMaxHealth: 8
   playerMana: 8
@@ -69964,6 +69975,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7906230313017117882, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
+      propertyPath: bossHealth
+      value: 
+      objectReference: {fileID: 71361785}
     - target: {fileID: 7906230313017117883, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
       propertyPath: manas.Array.data[0]
       value: 
@@ -70214,6 +70229,9 @@ MonoBehaviour:
   soundManager: {fileID: 1435846239}
   deathSound: {fileID: 8300000, guid: d6a524306fb41a749bc52065deb60b48, type: 3}
   getItem: {fileID: 8300000, guid: 746101308a0185040a6608116cb4ad96, type: 3}
+  bossImmune: {fileID: 8300000, guid: 657578e4be6b64dbf9b09deada272e55, type: 3}
+  bossHurt: {fileID: 8300000, guid: b9eff218e132a4e76be78840eca96fb2, type: 3}
+  bossDeath: {fileID: 8300000, guid: 35fbad8cdde724f11ba6481f1e64af71, type: 3}
 --- !u!82 &1435846239
 AudioSource:
   m_ObjectHideFlags: 0
@@ -70226,7 +70244,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 68e07db2c7dacd744b847b5dc9b77868, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.163
   m_Pitch: 1
   Loop: 1
   Mute: 0

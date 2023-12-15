@@ -7,7 +7,6 @@ using UnityEngine;
 public class DropBoulder : MonoBehaviour
 {
     private float timer;
-    private int randomTime;
     public GameObject boulder;
 
     private void Start()

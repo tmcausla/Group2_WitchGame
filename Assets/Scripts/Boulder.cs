@@ -11,7 +11,7 @@ public class Boulder : MonoBehaviour
     private int chance;
     private Transform upright;
 
-    private void Start()
+    private void Awake()
     {
         upright = gameObject.transform;
     }
@@ -29,12 +29,12 @@ public class Boulder : MonoBehaviour
     {
         chance = Random.Range(1, 21);
 
-        if (chance <= 4)
+        if (chance <= 3)
         {
              _ = Instantiate(health, transform.position, upright.rotation);
         }
 
-        if  (chance >= 16)
+        if  (chance >= 17)
         {
             _ = Instantiate(mana, transform.position, upright.rotation);
         }

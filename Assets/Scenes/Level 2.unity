@@ -70167,6 +70167,10 @@ PrefabInstance:
       propertyPath: hearts.Array.data[7]
       value: 
       objectReference: {fileID: 157563912}
+    - target: {fileID: 7906230313215473410, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
+      propertyPath: lessMana
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7906230314270092846, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.171

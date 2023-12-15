@@ -9,8 +9,7 @@ public class BossHealth : MonoBehaviour
     private Boss boss;
     public Slider bossHealth;
 
-    public int health = 100;
-    private int damage = 3;
+    public float health = 60;
 
     public GameObject deathEffect;
 
@@ -27,7 +26,7 @@ public class BossHealth : MonoBehaviour
         
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (isInvulnerable == false)
         {
@@ -45,7 +44,7 @@ public class BossHealth : MonoBehaviour
         }
      
     }
-    public void TakeDamageBullet(int damage)
+    public void TakeDamageBullet(float damage)
     {
             health -= damage;
 
@@ -56,13 +55,16 @@ public class BossHealth : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        for (int i = 1; i < 4; i++)
+        if (collision.gameObject.CompareTag("Bullet1"))
         {
-            if (collision.gameObject.CompareTag($"Bullet{i}"))
-            {
-                sm.PlayBossHurt();
-                TakeDamageBullet(damage);
-            }
+            sm.PlayBossHurt();
+            TakeDamageBullet(collision.gameObject.GetComponent<Bullet>().damage);
+        }
+
+        if (collision.gameObject.CompareTag("Bullet2"))
+        {
+            sm.PlayBossHurt();
+            TakeDamageBullet(collision.gameObject.GetComponent<ShotgunBullet>().damage);
         }
     }
     void Die()

@@ -151,6 +151,10 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(damage);
         }
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            TakeDamage(2);
+        }
         if (collision.gameObject.CompareTag("Trap"))
         {
             Die();

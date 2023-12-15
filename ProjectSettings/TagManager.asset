@@ -21,6 +21,7 @@ TagManager:
   - Laser
   - CameraPull
   - Terrain
+  - Boss
   layers:
   - Default
   - TransparentFX

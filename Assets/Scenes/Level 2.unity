@@ -69272,7 +69272,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4028739398539612627}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &443317706
 MonoBehaviour:
@@ -70029,7 +70029,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4028739398539612627}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1037908787
 MonoBehaviour:
@@ -70102,7 +70102,7 @@ PrefabInstance:
     - target: {fileID: 7906230313017117882, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
       propertyPath: bossHealth
       value: 
-      objectReference: {fileID: 71361785}
+      objectReference: {fileID: 0}
     - target: {fileID: 7906230313017117883, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
       propertyPath: manas.Array.data[0]
       value: 
@@ -70314,7 +70314,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4028739398539612627}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1312606473
 MonoBehaviour:
@@ -70398,6 +70398,10 @@ MonoBehaviour:
   soundManager: {fileID: 1435846239}
   deathSound: {fileID: 8300000, guid: d6a524306fb41a749bc52065deb60b48, type: 3}
   getItem: {fileID: 8300000, guid: 746101308a0185040a6608116cb4ad96, type: 3}
+  bossImmune: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
+  bossHurt: {fileID: 8300000, guid: b9eff218e132a4e76be78840eca96fb2, type: 3}
+  bossDeath: {fileID: 8300000, guid: 35fbad8cdde724f11ba6481f1e64af71, type: 3}
+  laserBeam: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!82 &1435846239
 AudioSource:
   m_ObjectHideFlags: 0
@@ -70580,7 +70584,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4028739398539612627}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1687002709
 MonoBehaviour:
@@ -70788,7 +70792,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4028739398539612627}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1811160677
 MonoBehaviour:

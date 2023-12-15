@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSpeed: 1
   change: 2
-  range: 3
+  range: 2
   charge: 20
   angryChase: 2
   angryCharge: 30

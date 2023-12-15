@@ -47,6 +47,7 @@ public class Boss : MonoBehaviour
     private Vector2 workspace;
 
 
+
     private void Awake()
     {
         StateMachine = new BossStateMachine();

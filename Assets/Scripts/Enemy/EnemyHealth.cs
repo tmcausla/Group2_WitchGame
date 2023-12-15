@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     private int chance;
     private bool dropRate = false;
     private bool spawn = false;
+    private PlaySounds sm;
     public GameObject health;
     public GameObject mana;
     private int itemCount;
@@ -20,13 +21,16 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        sm = FindObjectOfType<PlaySounds>();
         badHealth = badMaxHealth;
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public void GetHurt(int value)
     {
+        
         badHealth = Mathf.Clamp(badHealth - value, 0, badMaxHealth);
+        sm.HurtEnemy();
         if (badHealth <= 0)
         {
             Destroy(gameObject);

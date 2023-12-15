@@ -7,6 +7,9 @@ public class PlaySounds : MonoBehaviour
 
     public AudioClip deathSound;
     public AudioClip getItem;
+    public AudioClip bossImmune;
+    public AudioClip bossHurt;
+    public AudioClip bossDeath;
 
 
     private void Awake()
@@ -23,4 +26,7 @@ public class PlaySounds : MonoBehaviour
     public void PlayDeathSound() => soundManager.PlayOneShot(deathSound);
 
     public void PlayItemSound() => soundManager.PlayOneShot(getItem);
+    public void PlayBossImmuneSound() => soundManager.PlayOneShot(bossImmune);
+    public void PlayBossHurt() => soundManager.PlayOneShot(bossHurt);
+    public void PlayBossDeathSound() => soundManager.PlayOneShot(bossDeath);
 }

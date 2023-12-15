@@ -77,6 +77,7 @@ public class Boss : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
         StateMachine.Initialize(NotMove);
+        bossHealth.isInvulnerable = true;
     }
 
     private void Update()

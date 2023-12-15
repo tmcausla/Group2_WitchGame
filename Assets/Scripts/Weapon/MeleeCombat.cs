@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class MeleeCombat : MonoBehaviour
 {
+    private PlaySounds sm;
     public Animator anim;
     public Transform attackPoint;
     public LayerMask enemyLayers;
     public LayerMask bossLayers;
     public LayerMask redSlime;
     public LayerMask blueSlime;
-
+    public BossHealth bossHealth;
     public float attackRange = 0.5f;
     public int attackDamage = 2;
     public float attackRate = 2f;
@@ -17,6 +18,7 @@ public class MeleeCombat : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        sm = FindObjectOfType<PlaySounds>();
     }
 
     // Update is called once per frame
@@ -39,13 +41,15 @@ public class MeleeCombat : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D enemyCollider2D in hitEnemies)
         {
-            enemyCollider2D.GetComponent<EnemyHealth>().GetHurt(attackDamage);
-            
+  
+                enemyCollider2D.GetComponent<EnemyHealth>().GetHurt(attackDamage);
+
         }
         Collider2D[] hitBoss = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, bossLayers);
         foreach (Collider2D enemyCollider2D in hitBoss)
         {
-            enemyCollider2D.GetComponent<BossHealth>().TakeDamage(attackDamage);
+
+                enemyCollider2D.GetComponent<BossHealth>().TakeDamage(attackDamage);
 
         }
         Collider2D[] hitRedSlime = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, redSlime);

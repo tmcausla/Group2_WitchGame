@@ -18,6 +18,7 @@ public class NotMove : NormalBoss
     public override void Enter()
     {
         base.Enter();
+        boss.bossHealth.isInvulnerable = true;
     }
 
     public override void Exit()

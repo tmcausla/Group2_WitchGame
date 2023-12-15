@@ -2926,6 +2926,9 @@ MonoBehaviour:
   bossImmune: {fileID: 0}
   bossHurt: {fileID: 0}
   bossDeath: {fileID: 0}
+  laserBeam: {fileID: 0}
+  damageEnemy: {fileID: 0}
+  victory: {fileID: 8300000, guid: 4e3357cae249374439bd5b5efbc19e08, type: 3}
 --- !u!4 &673222574 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8152896723711405594, guid: bf257adb79ebf7f49b51ba7c4c2df02e, type: 3}
@@ -112731,11 +112734,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2448954550514795297, guid: 194f26fef209d574782181178d9a6a23, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -232
+      value: -234
       objectReference: {fileID: 0}
     - target: {fileID: 2448954550514795297, guid: 194f26fef209d574782181178d9a6a23, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -61
+      value: -38
       objectReference: {fileID: 0}
     - target: {fileID: 2448954550514795297, guid: 194f26fef209d574782181178d9a6a23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -112806,6 +112809,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 663260115644497184, guid: 194de3fb022450b4094070f29dee68fe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.42806718
+      objectReference: {fileID: 0}
+    - target: {fileID: 663260115644497184, guid: 194de3fb022450b4094070f29dee68fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -112835,11 +112842,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 663260115644497184, guid: 194de3fb022450b4094070f29dee68fe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -257
+      value: -234
       objectReference: {fileID: 0}
     - target: {fileID: 663260115644497184, guid: 194de3fb022450b4094070f29dee68fe, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -31
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 663260115644497184, guid: 194de3fb022450b4094070f29dee68fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -112945,6 +112952,18 @@ PrefabInstance:
     - target: {fileID: 7906230313017117828, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906230313017117829, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906230313017117829, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906230313017117829, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 7906230313017117830, guid: 53a4006ce6bda5242aa0893d4f25392d, type: 3}
       propertyPath: anim

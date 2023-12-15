@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public bool newScene = false;
 
     public int unlockedSpells = 0;
+    public float playerHealth = 8;
+    public float playerMaxHealth = 8;
+    public float playerMana = 8;
+    public float playerMaxMana = 8;
 
 
     

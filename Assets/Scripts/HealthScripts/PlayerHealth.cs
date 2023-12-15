@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public float health;
-    private readonly float maxHealth = 8;
+    private float maxHealth = 8;
     private readonly int damage = 1;
     public float KBForce;
     public float KBCounter;
@@ -29,6 +29,12 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private Animator anim;
     private PlaySounds sm;
+    private GameManager gm;
+
+    private void Awake()
+    {
+        gm = FindObjectOfType<GameManager>();
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -42,6 +48,9 @@ public class PlayerHealth : MonoBehaviour
             spriteRend = GetComponent<SpriteRenderer>();
             sm = FindObjectOfType<PlaySounds>();
         }
+
+        maxHealth = gm.playerMaxHealth;
+        health = gm.playerHealth;
     }
 
     public void TakeDamage(int amount)
@@ -91,6 +100,9 @@ public class PlayerHealth : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
+
+        gm.playerHealth = health;
+        gm.playerMaxHealth = maxHealth;
     }
 
     //private void FixedUpdate()

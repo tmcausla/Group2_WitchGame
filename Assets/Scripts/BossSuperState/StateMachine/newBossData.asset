@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7172f8b364cb9341b41832927878c68, type: 3}
   m_Name: newBossData
   m_EditorClassIdentifier: 
-  normalSpeed: 2
+  normalSpeed: 1
   change: 2
   range: 3
   charge: 20
-  angryChase: 4
+  angryChase: 2
   angryCharge: 30

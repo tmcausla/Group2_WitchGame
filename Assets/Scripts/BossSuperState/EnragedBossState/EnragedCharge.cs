@@ -34,7 +34,7 @@ public class EnragedCharge : EnragedBoss
     {
         base.LogicUpdate();
 
-        if (doneCharge )
+        if (doneCharge && boss.counter > 1)
         {
             boss.SetVelocityZero();
             boss.ReturnToMiddle();

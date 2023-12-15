@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer sprite;
     public BoxCollider2D coll;
     public Rigidbody2D rb;
+    public bool isFlipped;
 
     [SerializeField] private LayerMask jumpableGround;
 
@@ -34,16 +35,22 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateAnimation()
     {
         MovementState state;
+        Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;
 
-        if (movement > 0f)
+        if (movement < 0f && isFlipped == true)
         {
             state = MovementState.running;
-            sprite.flipX = true;
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = false;
         }
-        else if (movement < 0f)
+        else if (movement > 0f && isFlipped == false)
         {
             state = MovementState.running;
-            sprite.flipX = false;
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = true;
         }
         else
         {

@@ -40,7 +40,7 @@ public class IceSlimeHealth : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.CompareTag("Bullet3"))
+        if (collision.gameObject.CompareTag("Bullet2"))
         {
             GetHurt(goodDamage);
         }

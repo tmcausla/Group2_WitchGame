@@ -19,8 +19,7 @@ public class EnragedCharge : EnragedBoss
     public override void Enter()
     {
         base.Enter();
-        boss.counter = 0;
-        boss.StartCharge();
+        boss.counter = 0f;
         boss.SetChargeVelocity(bossData.angryCharge);
     }
 

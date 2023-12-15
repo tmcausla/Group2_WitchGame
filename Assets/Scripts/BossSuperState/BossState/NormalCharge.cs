@@ -22,7 +22,6 @@ public class NormalCharge : NormalBoss
         base.Enter();
         boss.ChargeDirection();
         boss.counter = 0;
-        boss.StartCharge();
         boss.SetChargeVelocity(bossData.charge);
     }
 

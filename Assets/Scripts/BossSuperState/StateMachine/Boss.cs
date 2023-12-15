@@ -31,6 +31,7 @@ public class Boss : MonoBehaviour
     public LightningRound LightningRound { get; private set; }
     public BossAttack BossAttack { get; private set; }
     public EnragedAttack EnragedAttack { get; private set; }
+    public NotMove NotMove { get; private set; }
 
     [SerializeField]
     private BossData bossData;
@@ -61,6 +62,8 @@ public class Boss : MonoBehaviour
         LightningRound = new LightningRound(this, StateMachine, bossData, "lightning");
         BossAttack = new BossAttack(this, StateMachine, bossData, "attack");
         EnragedAttack = new EnragedAttack(this, StateMachine, bossData, "angryattack");
+        NotMove = new NotMove(this, StateMachine, bossData, "notmove");
+
 
     }
 
@@ -72,7 +75,7 @@ public class Boss : MonoBehaviour
         Collider2D = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
 
-        StateMachine.Initialize(StartFight);
+        StateMachine.Initialize(NotMove);
     }
 
     private void Update()
@@ -163,6 +166,11 @@ public class Boss : MonoBehaviour
         Instantiate(LaserStrike, LightningThree.position, Quaternion.Euler(0f, 0f, 90f));
         Instantiate(LaserStrike, LightningFour.position, Quaternion.Euler(0f, 0f, 90f));
         Instantiate(LaserStrike, LightningFive.position, Quaternion.Euler(0f, 0f, 90f));
+    }
+
+    public bool SeePlayer()
+    {
+        return Vector2.Distance(transform.position, player.transform.position) < 7;
     }
     public void Death()
     {

@@ -498,7 +498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104844277}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.171, y: 0, z: 0}
+  m_LocalPosition: {x: -1.171, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1719,16 +1719,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359371375}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.2676272, y: 57.674088, z: -2.4042888}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.79808795, y: 0.39532763, z: 0.032693096}
+  m_LocalScale: {x: 0.16581932, y: 0.16581932, z: 0.16581932}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1947681593}
   - {fileID: 2060619798}
   - {fileID: 446444261}
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 435192433}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &366926250 stripped
 Transform:
@@ -2105,8 +2105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86ab4bb80d0cfa4facd2c4524d3e692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 2
-  enragedAttackDamage: 4
+  attackDamage: 1
+  enragedAttackDamage: 2
   attackOffset: {x: 1.5, y: 0, z: 0}
   attackRange: 1.2
   attackMask:
@@ -2266,10 +2266,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435192425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.45463, y: 55.56, z: -2.6014497}
+  m_LocalPosition: {x: -2.45463, y: 55.29, z: -2.6014497}
   m_LocalScale: {x: 6.0306606, y: 6.0306606, z: 6.0306606}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 359371376}
+  - {fileID: 925271153}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3158,7 +3160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &667580110
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4696,9 +4698,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925271152}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.583503, y: 61.82, z: -2.373941}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.0162855, y: 1.0827999, z: 0.03772535}
+  m_LocalScale: {x: 0.16581932, y: 0.16581932, z: 0.16581932}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 320628999}
@@ -4706,8 +4708,8 @@ Transform:
   - {fileID: 1536349610}
   - {fileID: 269238036}
   - {fileID: 1173476934}
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_Father: {fileID: 435192433}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &990413864 stripped
 Transform:
@@ -92572,7 +92574,7 @@ MonoBehaviour:
   shotgunTransformThree: {fileID: 1372718548}
   canFire: 0
   timeBetweenFiring: 0
-  lessMana: 1
+  lessMana: 3
 --- !u!212 &1206096603
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -93639,7 +93641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401825625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.46, y: 59.63, z: 0}
+  m_LocalPosition: {x: 1.8, y: -0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -93690,6 +93692,7 @@ MonoBehaviour:
   sprite: {fileID: 1401825627}
   coll: {fileID: 1401825629}
   rb: {fileID: 1401825626}
+  isFlipped: 0
   jumpableGround:
     serializedVersion: 2
     m_Bits: 8
@@ -93749,6 +93752,12 @@ MonoBehaviour:
   bossLayers:
     serializedVersion: 2
     m_Bits: 512
+  redSlime:
+    serializedVersion: 2
+    m_Bits: 2048
+  blueSlime:
+    serializedVersion: 2
+    m_Bits: 4096
   attackRange: 1
   attackDamage: 4
   attackRate: 2

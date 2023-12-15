@@ -24,7 +24,6 @@ public class EnragedChase : EnragedBoss
     {
         base.Exit();
         inRange = false;
-        boss.counter = 0;
     }
 
     public override void LogicUpdate()

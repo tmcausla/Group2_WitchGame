@@ -27,7 +27,7 @@ public class SlimeHealth : MonoBehaviour
 
     public void GetHurt(int value)
     {
-        _ = StartCoroutine(Invunerability());
+        //_ = StartCoroutine(Invunerability());
         badHealth = Mathf.Clamp(badHealth - value, 0, badMaxHealth);
         if (badHealth <= 0)
         {
@@ -40,7 +40,7 @@ public class SlimeHealth : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
        
-            if (collision.gameObject.CompareTag("Bullet2"))
+            if (collision.gameObject.CompareTag("Bullet3"))
             {
                 GetHurt(goodDamage);
             }

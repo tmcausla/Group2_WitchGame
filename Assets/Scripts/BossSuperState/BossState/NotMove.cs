@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartFight : NormalBoss
+public class NotMove : NormalBoss
 {
-    public StartFight(Boss boss, BossStateMachine stateMachine, BossData bossdata, string animBoolName) : base(boss, stateMachine, bossdata, animBoolName)
+    public bool startMove;
+    public NotMove(Boss boss, BossStateMachine stateMachine, BossData bossdata, string animBoolName) : base(boss, stateMachine, bossdata, animBoolName)
     {
     }
 
     public override void DoChecks()
     {
         base.DoChecks();
+        startMove = boss.SeePlayer();
     }
 
     public override void Enter()
@@ -21,16 +23,14 @@ public class StartFight : NormalBoss
     public override void Exit()
     {
         base.Exit();
-        boss.counter = 0f;
-        boss.bossHealth.isInvulnerable = true;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (boss.counter > 5)
+        if (startMove)
         {
-            stateMachine.ChangeState(boss.NormalChase);
+            stateMachine.ChangeState(boss.StartFight);
         }
     }
 

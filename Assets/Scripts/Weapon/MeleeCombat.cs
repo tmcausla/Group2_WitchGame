@@ -6,6 +6,8 @@ public class MeleeCombat : MonoBehaviour
     public Transform attackPoint;
     public LayerMask enemyLayers;
     public LayerMask bossLayers;
+    public LayerMask redSlime;
+    public LayerMask blueSlime;
 
     public float attackRange = 0.5f;
     public int attackDamage = 2;
@@ -41,6 +43,19 @@ public class MeleeCombat : MonoBehaviour
             enemyCollider2D.GetComponent<BossHealth>().TakeDamage(attackDamage);
 
         }
+        Collider2D[] hitRedSlime = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, redSlime);
+        foreach (Collider2D enemyCollider2D in hitRedSlime)
+        {
+            enemyCollider2D.GetComponent<SlimeHealth>().GetHurt(attackDamage);
+
+        }
+        Collider2D[] hitBlueSlime = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, blueSlime);
+        foreach (Collider2D enemyCollider2D in hitBlueSlime)
+        {
+            enemyCollider2D.GetComponent<IceSlimeHealth>().GetHurt(attackDamage);
+
+        }
+
     }
 
     private void OnDrawGizmosSelected() => Gizmos.DrawWireSphere(attackPoint.position, attackRange);

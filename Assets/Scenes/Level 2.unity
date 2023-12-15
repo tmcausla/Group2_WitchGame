@@ -340,11 +340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 663260115644497184, guid: 194de3fb022450b4094070f29dee68fe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -56
+      value: -100.7
       objectReference: {fileID: 0}
     - target: {fileID: 663260115644497184, guid: 194de3fb022450b4094070f29dee68fe, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -99
+      value: -32
       objectReference: {fileID: 0}
     - target: {fileID: 663260115644497184, guid: 194de3fb022450b4094070f29dee68fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -613,7 +613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 173}
+  m_AnchoredPosition: {x: -152, y: 221.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &174707419
@@ -743,11 +743,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2448954550514795297, guid: 194f26fef209d574782181178d9a6a23, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -52
+      value: -98.6
       objectReference: {fileID: 0}
     - target: {fileID: 2448954550514795297, guid: 194f26fef209d574782181178d9a6a23, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -133
+      value: -72.8
       objectReference: {fileID: 0}
     - target: {fileID: 2448954550514795297, guid: 194f26fef209d574782181178d9a6a23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -69707,7 +69707,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1246763013937450952, guid: 06c49095f6b480e46be6fa39ba21f435, type: 3}
       propertyPath: health
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1246763013937450952, guid: 06c49095f6b480e46be6fa39ba21f435, type: 3}
       propertyPath: bossHealth
@@ -70487,6 +70487,8 @@ MonoBehaviour:
   bossHurt: {fileID: 8300000, guid: b9eff218e132a4e76be78840eca96fb2, type: 3}
   bossDeath: {fileID: 8300000, guid: 35fbad8cdde724f11ba6481f1e64af71, type: 3}
   laserBeam: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
+  damageEnemy: {fileID: 0}
+  victory: {fileID: 8300000, guid: 4e3357cae249374439bd5b5efbc19e08, type: 3}
 --- !u!82 &1435846239
 AudioSource:
   m_ObjectHideFlags: 0
@@ -71040,11 +71042,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4639776442766179405, guid: ef565ac644b790446ab422fa3841f852, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 4639776442766179405, guid: ef565ac644b790446ab422fa3841f852, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 178
+      value: 223.6
       objectReference: {fileID: 0}
     - target: {fileID: 4639776442766179405, guid: ef565ac644b790446ab422fa3841f852, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

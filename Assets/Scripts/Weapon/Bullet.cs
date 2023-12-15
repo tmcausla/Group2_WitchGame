@@ -45,5 +45,6 @@ public class Bullet : MonoBehaviour
         Instantiate(Effect, transform.position, transform.rotation);
         ParticleEffect.Play();
         Destroy(gameObject);
+        DestroyImmediate(ParticleEffect);
     }
 }

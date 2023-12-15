@@ -15,8 +15,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce;
 
     private enum MovementState { idle, running, jumping, shooting }
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        coll = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+    }
 
-    
     private void Update()
     {
         movement = Input.GetAxisRaw("Horizontal");
@@ -29,28 +35,24 @@ public class PlayerMovement : MonoBehaviour
         }
 
         UpdateAnimation();
+        CheckDirection();
     }
 
     //changes animation based on current type of movement
     private void UpdateAnimation()
     {
         MovementState state;
-        Vector3 flipped = transform.localScale;
-        flipped.z *= -1f;
 
-        if (movement < 0f && isFlipped == true)
+ 
+        if (movement < 0f)
         {
             state = MovementState.running;
-            transform.localScale = flipped;
-            transform.Rotate(0f, 180f, 0f);
-            isFlipped = false;
+
         }
-        else if (movement > 0f && isFlipped == false)
+        else if (movement > 0f)
         {
             state = MovementState.running;
-            transform.localScale = flipped;
-            transform.Rotate(0f, 180f, 0f);
-            isFlipped = true;
+
         }
         else
         {
@@ -63,6 +65,23 @@ public class PlayerMovement : MonoBehaviour
         }
 
         anim.SetInteger("state", (int)state);
+    }
+    public void CheckDirection()
+    {
+        Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;
+        if (movement < 0f && isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = false;
+        }
+        else if (movement > 0f && !isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = true;
+        }
     }
 
     //checks if player is in contact with ground

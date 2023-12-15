@@ -323,6 +323,7 @@ MonoBehaviour:
   sprite: {fileID: 7906230313017117827}
   coll: {fileID: 7906230313017117829}
   rb: {fileID: 7906230313017117826}
+  isFlipped: 0
   jumpableGround:
     serializedVersion: 2
     m_Bits: 8
@@ -441,6 +442,12 @@ MonoBehaviour:
   bossLayers:
     serializedVersion: 2
     m_Bits: 512
+  redSlime:
+    serializedVersion: 2
+    m_Bits: 2048
+  blueSlime:
+    serializedVersion: 2
+    m_Bits: 4096
   attackRange: 1
   attackDamage: 4
   attackRate: 2

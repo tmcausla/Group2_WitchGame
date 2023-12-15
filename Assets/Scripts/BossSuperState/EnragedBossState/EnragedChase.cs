@@ -35,7 +35,7 @@ public class EnragedChase : EnragedBoss
         {
             stateMachine.ChangeState(boss.EnragedAttack);
         }
-        else if(boss.counter > 20f)
+        else if(boss.counter > 15f)
         {
             stateMachine.ChangeState(boss.EnragedCharge);
         }

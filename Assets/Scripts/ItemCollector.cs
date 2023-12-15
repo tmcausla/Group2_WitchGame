@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,11 +8,13 @@ public class ItemCollector : MonoBehaviour
     [SerializeField] private float healthValue;
     private PlaySounds sm;
     private GameManager gm;
+    private Animator anim;
 
     private void Awake()
     {
         sm = FindObjectOfType<PlaySounds>();
         gm = FindObjectOfType<GameManager>();
+        anim = GameObject.FindWithTag("MainCamera").GetComponent<Animator>();
     }
 
     private void Start()
@@ -23,6 +26,8 @@ public class ItemCollector : MonoBehaviour
             gm.newScene = false;
         }
         transform.position = gm.playerCheckpoint;
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,6 +67,12 @@ public class ItemCollector : MonoBehaviour
         {
             gameObject.GetComponent<PlayerMana>().mana = gameObject.GetComponent<PlayerMana>().maxMana;
             Destroy(collision.gameObject);
+        }
+
+        //When player triggers boss scene
+        if (collision.gameObject.CompareTag("CameraPull"))
+        {
+            anim.SetTrigger("cameraPull");
         }
     }
 

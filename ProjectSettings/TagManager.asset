@@ -19,6 +19,7 @@ TagManager:
   - Health
   - Mana
   - Laser
+  - CameraPull
   layers:
   - Default
   - TransparentFX

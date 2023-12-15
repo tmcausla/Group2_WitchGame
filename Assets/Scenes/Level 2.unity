@@ -69253,7 +69253,7 @@ MonoBehaviour:
   playerCheckpoint: {x: 0, y: 0, z: 0}
   newScene: 0
   dead: 0
-  unlockedSpells: 3
+  unlockedSpells: 0
   playerHealth: 8
   playerMaxHealth: 8
   playerMana: 8

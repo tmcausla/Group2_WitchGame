@@ -69707,7 +69707,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1246763013937450952, guid: 06c49095f6b480e46be6fa39ba21f435, type: 3}
       propertyPath: health
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1246763013937450952, guid: 06c49095f6b480e46be6fa39ba21f435, type: 3}
       propertyPath: bossHealth
@@ -70489,6 +70489,8 @@ MonoBehaviour:
   laserBeam: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
   damageEnemy: {fileID: 0}
   victory: {fileID: 8300000, guid: 4e3357cae249374439bd5b5efbc19e08, type: 3}
+  bossFight: {fileID: 0}
+  overworld: {fileID: 0}
 --- !u!82 &1435846239
 AudioSource:
   m_ObjectHideFlags: 0

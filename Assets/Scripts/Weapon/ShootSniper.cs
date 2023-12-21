@@ -12,12 +12,14 @@ public class ShootSniper : MonoBehaviour
     public float timeBetweenFiring;
     public int lessMana = 1;
     private SpriteRenderer spriteRend;
+    private MainMenu pauseMenu;
 
     // Start is called before the first frame update
     private void Start()
     {
         spriteRend = GetComponent<SpriteRenderer>();
         gm = FindObjectOfType<GameManager>();
+        pauseMenu = FindObjectOfType<MainMenu>();
     }
 
     // Update is called once per frame
@@ -46,7 +48,7 @@ public class ShootSniper : MonoBehaviour
             canFire = false;
         }
 
-        if (Input.GetMouseButtonDown(0) && canFire == true)
+        if (Input.GetMouseButtonDown(0) && canFire == true && pauseMenu.gamePaused)
         {
             canFire = false;
             _ = Instantiate(Prefab, bulletTransform.position, Quaternion.identity);

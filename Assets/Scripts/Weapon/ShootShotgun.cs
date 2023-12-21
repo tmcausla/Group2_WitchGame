@@ -14,12 +14,14 @@ public class ShootShotgun : MonoBehaviour
     public float timeBetweenFiring;
     public int lessMana = 2;
     private SpriteRenderer spriteRend;
+    private MainMenu pauseMenu;
 
     // Start is called before the first frame update
     private void Start()
     {
         spriteRend = GetComponent<SpriteRenderer>();
         gm = FindObjectOfType<GameManager>();
+        pauseMenu = FindObjectOfType<MainMenu>();
     }
 
     // Update is called once per frame
@@ -50,7 +52,7 @@ public class ShootShotgun : MonoBehaviour
             canFire = false;
         }
 
-        if (Input.GetMouseButtonDown(0) && canFire == true)
+        if (Input.GetMouseButtonDown(0) && canFire == true && pauseMenu.gamePaused)
         {
             canFire = false;
             playerMana.UseMana(lessMana);

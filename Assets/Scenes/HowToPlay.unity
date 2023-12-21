@@ -671,6 +671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01eadffc6f547494cadfa87e99848b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  gamePaused: 0
 --- !u!1 &1589076811
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +943,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "A - Move left\nD - Move right\nSpace - Jump\nClick to shoot \n\nMouse
-    Wheel or 1, 2, 3 to change equipped spell"
+    Wheel or 1, 2, 3 to change equipped spell\n\nEsc - Pause"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c07ed7e8061cc6843a33a9ad7c8b4213, type: 2}
   m_sharedMaterial: {fileID: 544035017102583659, guid: c07ed7e8061cc6843a33a9ad7c8b4213, type: 2}

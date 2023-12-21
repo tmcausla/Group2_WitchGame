@@ -7,6 +7,8 @@ public class MainMenu : MonoBehaviour
 {
     private PlaySounds sm;
     private GameManager gm;
+    public GameObject pauseMenu;
+    public bool gamePaused = false;
 
     private void Start()
     {
@@ -40,5 +42,35 @@ public class MainMenu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (gamePaused)
+            {
+                Resume();
+            }
+            else 
+            {
+                Pause();
+            }
+        }
+        
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        gamePaused = false;
+        Time.timeScale = 1f;
+    }
+
+    public void Pause()
+    {
+        pauseMenu.SetActive(true);
+        gamePaused = true;
+        Time.timeScale = 0f;
     }
 }

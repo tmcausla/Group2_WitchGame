@@ -48,7 +48,7 @@ public class ShootSniper : MonoBehaviour
             canFire = false;
         }
 
-        if (Input.GetMouseButtonDown(0) && canFire == true && pauseMenu.gamePaused)
+        if (Input.GetMouseButtonDown(0) && canFire == true && !pauseMenu.gamePaused)
         {
             canFire = false;
             _ = Instantiate(Prefab, bulletTransform.position, Quaternion.identity);

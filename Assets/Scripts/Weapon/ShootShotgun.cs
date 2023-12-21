@@ -52,7 +52,7 @@ public class ShootShotgun : MonoBehaviour
             canFire = false;
         }
 
-        if (Input.GetMouseButtonDown(0) && canFire == true && pauseMenu.gamePaused)
+        if (Input.GetMouseButtonDown(0) && canFire == true && !pauseMenu.gamePaused)
         {
             canFire = false;
             playerMana.UseMana(lessMana);

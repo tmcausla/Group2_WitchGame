@@ -671,11 +671,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 9f8771de-7899-4136-859d-ac83e7b6e39f
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Group2_WitchGame
+  organizationId: horsetrich
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

@@ -21,14 +21,7 @@ public class SkeletonMovement : MonoBehaviour
 
         rb.velocity = new Vector2(speed * (transform.position.x - player.transform.position.x), rb.velocity.y);
 
-        if (rb.velocity.x > 0)
-        {
-            sprite.flipX = true;
-        }
-        else if (rb.velocity.x < 0)
-        {
-            sprite.flipX = false;
-        }
+        sprite.flipX = rb.velocity.x > 0;
     }
 
     private void CheckRange()

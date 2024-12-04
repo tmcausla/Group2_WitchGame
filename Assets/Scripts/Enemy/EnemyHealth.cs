@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour
     {
         
         badHealth = Mathf.Clamp(badHealth - value, 0, badMaxHealth);
-        sm.HurtEnemy();
+        sm.PlaySoundEffect("enemyHurt");
         if (badHealth <= 0)
         {
             Destroy(gameObject);

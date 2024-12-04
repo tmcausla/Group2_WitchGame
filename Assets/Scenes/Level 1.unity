@@ -2927,7 +2927,7 @@ MonoBehaviour:
   bossHurt: {fileID: 8300000, guid: b9eff218e132a4e76be78840eca96fb2, type: 3}
   bossDeath: {fileID: 8300000, guid: 35fbad8cdde724f11ba6481f1e64af71, type: 3}
   laserBeam: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
-  damageEnemy: {fileID: 8300000, guid: d6a524306fb41a749bc52065deb60b48, type: 3}
+  enemyHurt: {fileID: 8300000, guid: d6a524306fb41a749bc52065deb60b48, type: 3}
   victory: {fileID: 8300000, guid: 4e3357cae249374439bd5b5efbc19e08, type: 3}
   bossFight: {fileID: 8300000, guid: 91cf7d145e899c24da9cb7bcf20f0f62, type: 3}
   overworld: {fileID: 8300000, guid: 68e07db2c7dacd744b847b5dc9b77868, type: 3}

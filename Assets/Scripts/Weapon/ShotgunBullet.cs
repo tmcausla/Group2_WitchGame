@@ -12,7 +12,6 @@ public class ShotgunBullet : MonoBehaviour
     public float force;
     public float damage;
 
-    // Start is called before the first frame update
     private void Start()
     {
         projectileCount = projectileLife;
@@ -30,7 +29,6 @@ public class ShotgunBullet : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rot + 180);
     }
 
-    // Update is called once per frame
     private void Update()
     {
         projectileCount -= Time.deltaTime;

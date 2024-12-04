@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Boulder : MonoBehaviour
@@ -33,8 +29,7 @@ public class Boulder : MonoBehaviour
         {
              _ = Instantiate(health, transform.position, upright.rotation);
         }
-
-        if  (chance >= 17)
+        else if  (chance >= 17)
         {
             _ = Instantiate(mana, transform.position, upright.rotation);
         }

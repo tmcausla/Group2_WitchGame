@@ -6,7 +6,6 @@ public class SkeletonMovement : MonoBehaviour
     public Rigidbody2D rb;
     private GameObject player;
     public Animator anim;
-
     [SerializeField] private float speed;
     [SerializeField] private float range;
 
@@ -20,7 +19,6 @@ public class SkeletonMovement : MonoBehaviour
         CheckRange();
 
         rb.velocity = new Vector2(speed * (transform.position.x - player.transform.position.x), rb.velocity.y);
-
         sprite.flipX = rb.velocity.x > 0;
     }
 

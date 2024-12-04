@@ -4,56 +4,36 @@ public class WeaponSwitching : MonoBehaviour
 {
     public int selectedWeapon = 0;
 
-    // Start is called before the first frame update
-    private void Start() => SelectWeapon();
+    private void Start()
+    {
+        SelectWeapon();
+    }
 
-    // Update is called once per frame
     private void Update()
     {
         int previousSelectedWeapon = selectedWeapon;
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll != 0f)
         {
-            if (selectedWeapon >= transform.childCount - 1)
-            {
-                selectedWeapon = 0;
-            }
-            else
-            {
-                selectedWeapon++;
-            }
-        }
-
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (selectedWeapon <= 0)
+            selectedWeapon += (scroll > 0f) ? -1 : 1;
+            if (selectedWeapon < 0)
             {
                 selectedWeapon = transform.childCount - 1;
             }
-            else
+            else if (selectedWeapon >= transform.childCount)
             {
-                selectedWeapon--;
+                selectedWeapon = 0;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        for (int i = 0; i <= 3; i++)
         {
-            selectedWeapon = 0;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
-        {
-            selectedWeapon = 1;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
-        {
-            selectedWeapon = 2;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
-        {
-            selectedWeapon = 3;
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+            {
+                selectedWeapon = i;
+                break;
+            }
         }
 
         if (previousSelectedWeapon != selectedWeapon)
@@ -68,12 +48,7 @@ public class WeaponSwitching : MonoBehaviour
         foreach (Transform weapon in transform)
         {
             i++;
-            if (i == selectedWeapon)
-            {
-                weapon.gameObject.SetActive(true);
-                continue;
-            }
-            weapon.gameObject.SetActive(false);
+            weapon.gameObject.SetActive(i == selectedWeapon);
         }
     }
 }

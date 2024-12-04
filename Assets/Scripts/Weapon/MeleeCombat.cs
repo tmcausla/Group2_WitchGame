@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MeleeCombat : MonoBehaviour
 {
-    private PlaySounds sm;
     public Animator anim;
     public Transform attackPoint;
     public LayerMask enemyLayers;
@@ -18,10 +17,8 @@ public class MeleeCombat : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        sm = FindObjectOfType<PlaySounds>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (Time.time >= nextAttackTime)
@@ -37,35 +34,33 @@ public class MeleeCombat : MonoBehaviour
 
     private void Attack()
     {
+        LayerMask combinedLayers = enemyLayers | bossLayers | redSlime | blueSlime;
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, combinedLayers);
         
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        foreach (Collider2D enemyCollider2D in hitEnemies)
+        foreach (Collider2D collider in hitColliders)
         {
-  
-                enemyCollider2D.GetComponent<EnemyHealth>().GetHurt(attackDamage);
-
+            // Check if the collider has a Health component and deal damage accordingly
+            if (collider.TryGetComponent(out EnemyHealth enemyHealth))
+            {
+                enemyHealth.GetHurt(attackDamage);
+            }
+            else if (collider.TryGetComponent(out BossHealth bossHealth))
+            {
+                bossHealth.TakeDamage(attackDamage);
+            }
+            else if (collider.TryGetComponent(out SlimeHealth slimeHealth))
+            {
+                slimeHealth.GetHurt(attackDamage);
+            }
+            else if (collider.TryGetComponent(out IceSlimeHealth iceSlimeHealth))
+            {
+                iceSlimeHealth.GetHurt(attackDamage);
+            }
         }
-        Collider2D[] hitBoss = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, bossLayers);
-        foreach (Collider2D enemyCollider2D in hitBoss)
-        {
-
-                enemyCollider2D.GetComponent<BossHealth>().TakeDamage(attackDamage);
-
-        }
-        Collider2D[] hitRedSlime = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, redSlime);
-        foreach (Collider2D enemyCollider2D in hitRedSlime)
-        {
-            enemyCollider2D.GetComponent<SlimeHealth>().GetHurt(attackDamage);
-
-        }
-        Collider2D[] hitBlueSlime = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, blueSlime);
-        foreach (Collider2D enemyCollider2D in hitBlueSlime)
-        {
-            enemyCollider2D.GetComponent<IceSlimeHealth>().GetHurt(attackDamage);
-
-        }
-
     }
 
-    private void OnDrawGizmosSelected() => Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
 }

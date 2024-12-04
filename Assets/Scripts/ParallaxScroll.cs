@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ParallaxScroll : MonoBehaviour
@@ -17,7 +15,6 @@ public class ParallaxScroll : MonoBehaviour
     private void Update()
     {
         float dist = cam.transform.position.x * parallaxEffect;
-
         transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
     }
 }

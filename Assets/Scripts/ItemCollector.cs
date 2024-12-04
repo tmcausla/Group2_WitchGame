@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,54 +25,41 @@ public class ItemCollector : MonoBehaviour
             gm.newScene = false;
         }
         transform.position = gm.playerCheckpoint;
-
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //When player picks up a key
-        if (collision.gameObject.CompareTag("Key"))
-        {
-            gm.playerCheckpoint = collision.gameObject.transform.position; //updates checkpoint position in GameManager
-            sm.PlayItemSound();
-            Destroy(collision.gameObject);
-            keys++;
-        }
+        PlayerMana playerMana = gameObject.GetComponent<PlayerMana>();
+        PlayerHealth playerHealth = gameObject.GetComponent<PlayerHealth>();
 
-        //When player reaches the end of level
-        if (collision.gameObject.CompareTag("Finish"))
+        switch (collision.gameObject.tag)
         {
-            gm.newScene = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-
-        //When player unlocks a new spell
-        if (collision.gameObject.CompareTag("MoreWeapon"))
-        {
-            Destroy(collision.gameObject);
-            gm.unlockedSpells++;
-            gameObject.GetComponent<PlayerMana>().mana = gameObject.GetComponent<PlayerMana>().maxMana;
-        }
-
-        //When player picks up health
-        if (collision.tag == "Health")
-        {
-            gameObject.GetComponent<PlayerHealth>().AddHealth(healthValue);
-            Destroy(collision.gameObject);
-        }
-
-        //When player picks up mana
-        if (collision.tag == "Mana")
-        {
-            gameObject.GetComponent<PlayerMana>().mana = gameObject.GetComponent<PlayerMana>().maxMana;
-            Destroy(collision.gameObject);
-        }
-
-        //When player triggers boss scene
-        if (collision.gameObject.CompareTag("CameraPull"))
-        {
-            anim.SetTrigger("cameraPull");
+            case "Key":
+                gm.playerCheckpoint = collision.gameObject.transform.position; //updates checkpoint position in GameManager
+                sm.PlaySoundEffect("getItem");
+                keys++;
+                Destroy(collision.gameObject);
+                break;
+            case "Finish":
+                gm.newScene = true;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                break;
+            case "MoreWeapon":
+                gm.unlockedSpells++;
+                playerMana.mana = playerMana.maxMana;
+                Destroy(collision.gameObject);
+                break;
+            case "Health":
+                playerHealth.AddHealth(healthValue);
+                Destroy(collision.gameObject);
+                break;
+            case "Mana":
+                playerMana.mana = playerMana.maxMana;
+                Destroy(collision.gameObject);
+                break;
+            case "CameraPull":
+                anim.SetTrigger("cameraPull");
+                break;
         }
     }
 
@@ -82,9 +68,9 @@ public class ItemCollector : MonoBehaviour
         //When player encounters a door
         if (collision.gameObject.CompareTag("Door") && keys > 0)
         {
-            sm.PlayDeathSound();
-            Destroy(collision.gameObject);
+            sm.PlaySoundEffect("deathSound");
             keys--;
+            Destroy(collision.gameObject);
         }
     }
 }

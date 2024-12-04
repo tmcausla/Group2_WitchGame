@@ -78,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         gm.dead = true;
-        sm.PlayDeathSound();
+        sm.PlaySoundEffect("deathSound");
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");        
     }

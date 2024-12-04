@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -48,29 +46,14 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (gamePaused)
-            {
-                Resume();
-            }
-            else 
-            {
-                Pause();
-            }
+            SetPauseValues(gamePaused);
         }
-        
     }
 
-    public void Resume()
+    public void SetPauseValues(bool gameIsPaused)
     {
-        pauseMenu.SetActive(false);
-        gamePaused = false;
-        Time.timeScale = 1f;
-    }
-
-    public void Pause()
-    {
-        pauseMenu.SetActive(true);
-        gamePaused = true;
-        Time.timeScale = 0f;
+        pauseMenu.SetActive(!gameIsPaused);
+        gamePaused = !gameIsPaused;
+        Time.timeScale = !gameIsPaused ? 0f : 1f;
     }
 }

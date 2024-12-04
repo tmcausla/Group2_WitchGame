@@ -5,7 +5,10 @@ public class ShootPlease : MonoBehaviour
     private Camera mainCam;
     private Vector3 mousePos;
 
-    private void Start() => mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    private void Start()
+    {
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
 
     private void Update()
     {

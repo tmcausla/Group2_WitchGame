@@ -1,9 +1,7 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private readonly GameObject Bullet1;
     public GameObject Effect;
     public ParticleSystem ParticleEffect;
     private Vector3 mousePos;
@@ -21,8 +19,10 @@ public class Bullet : MonoBehaviour
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
         Vector3 direction = mousePos - transform.position;
         Vector3 rotation = transform.position - mousePos;
+        
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 180);
@@ -43,9 +43,9 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(Effect, transform.position, transform.rotation);
+        var copy = Instantiate(Effect, transform.position, transform.rotation);
         ParticleEffect.Play();
         Destroy(gameObject);
-        DestroyImmediate(ParticleEffect);
+        Destroy(copy);
     }
 }

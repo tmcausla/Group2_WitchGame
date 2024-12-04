@@ -7,14 +7,18 @@ public class PlayerMovement : MonoBehaviour
     public BoxCollider2D coll;
     public Rigidbody2D rb;
     public bool isFlipped;
-
-    [SerializeField] private LayerMask jumpableGround;
-
     private float movement;
+    [SerializeField] private LayerMask jumpableGround;
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
 
-    private enum MovementState { idle, running, jumping }
+    private enum MovementState
+    {
+        idle,
+        running,
+        jumping
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,24 +39,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
         UpdateAnimation();
-        
     }
 
     //changes animation based on current type of movement
     private void UpdateAnimation()
     {
         MovementState state;
-
  
         if (movement < 0f)
         {
             state = MovementState.running;
-
         }
         else if (movement > 0f)
         {
             state = MovementState.running;
-
         }
         else
         {
@@ -67,22 +67,27 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("state", (int)state);
         CheckDirection();
     }
+
     public void CheckDirection()
     {
-        Vector3 flipped = transform.localScale;
-        flipped.z *= -1f;
         if (movement < 0f && isFlipped)
         {
-            transform.localScale = flipped;
-            transform.Rotate(0f, 180f, 0f);
-            isFlipped = false;
+            SetPlayerFlip(false);
         }
         else if (movement > 0f && !isFlipped)
         {
-            transform.localScale = flipped;
-            transform.Rotate(0f, 180f, 0f);
-            isFlipped = true;
+            SetPlayerFlip(true);
         }
+    }
+
+    public void SetPlayerFlip(bool flipPlayer)
+    {
+        Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;
+
+        transform.localScale = flipped;
+        transform.Rotate(0f, 180f, 0f);
+        isFlipped = flipPlayer;
     }
 
     //checks if player is in contact with ground

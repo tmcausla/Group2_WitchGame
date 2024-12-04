@@ -120,8 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f0a681aa878424795f8066fe7f7751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Effect: {fileID: 3125110612510359497, guid: 4ff470a3e176c7043bcf60358c7b67e9, type: 3}
-  ParticleEffect: {fileID: 3125110612510359510, guid: 4ff470a3e176c7043bcf60358c7b67e9, type: 3}
+  Effect: {fileID: 3125110612510359497, guid: dc83f85af1f54fb48bb1a487b2fad927, type: 3}
+  ParticleEffect: {fileID: 3125110612510359510, guid: dc83f85af1f54fb48bb1a487b2fad927, type: 3}
   force: 6
   damage: 1
 --- !u!61 &8465172309844739995

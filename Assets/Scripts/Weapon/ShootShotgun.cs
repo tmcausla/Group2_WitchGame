@@ -13,21 +13,16 @@ public class ShootShotgun : MonoBehaviour
     private float timer;
     public float timeBetweenFiring;
     public int lessMana = 2;
-    private SpriteRenderer spriteRend;
     private MainMenu pauseMenu;
 
-    // Start is called before the first frame update
     private void Start()
     {
-        spriteRend = GetComponent<SpriteRenderer>();
         gm = FindObjectOfType<GameManager>();
         pauseMenu = FindObjectOfType<MainMenu>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
-
         transform.rotation = Quaternion.identity;
         if (gm.unlockedSpells <= 1 || playerHealth.health <= 0)
         {
@@ -38,18 +33,19 @@ public class ShootShotgun : MonoBehaviour
 
         gameObject.SetActive(true);
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
-        if (!canFire)
+
+        if (playerMana.mana <= 0)
+        {
+            canFire = false;
+        }
+        else if (!canFire)
         {
             timer += Time.deltaTime;
-            if (timer > timeBetweenFiring || playerMana.mana > 0)
+            if (timer > timeBetweenFiring)
             {
                 canFire = true;
                 timer = 0;
             }
-        }
-        if (playerMana.mana <= 0)
-        {
-            canFire = false;
         }
 
         if (Input.GetMouseButtonDown(0) && canFire == true && !pauseMenu.gamePaused)

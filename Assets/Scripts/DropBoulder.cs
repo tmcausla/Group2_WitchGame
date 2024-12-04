@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class DropBoulder : MonoBehaviour
@@ -13,7 +10,6 @@ public class DropBoulder : MonoBehaviour
         timer = Random.Range(15, 30);
     }
 
-    // Update is called once per frame
     private void Update()
     {
         timer -= Time.deltaTime;
